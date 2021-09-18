@@ -19,7 +19,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
 	console.log('Ready!');
-  client.channels.cache.get("888790836094066732").send("ready");
+  client.channels.cache.get("888802387983212554").send("a");
 });
 
 
