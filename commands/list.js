@@ -21,7 +21,10 @@ module.exports = {
 
         }
         else if(args[0]==='all'){
-          const activeUser = await user.find({ uid: uid }); // find user
+          const activeUser = await db.todos.users.find({ uid: uid }); // find user
+          if (!activeUser) {
+            break;
+          }
           let taskList = '';
           let formattedTask = ''; // set up task collectors
           for (var i = 0; i < activeUser.tasks.length; i++) {
@@ -54,7 +57,10 @@ module.exports = {
             message.channel.send(embed);
           }
           else{
-            const activeUser = await user.find({ uid: uid }); // find user
+            const activeUser = await db.todos.users.find({ uid: uid }); // find user
+            if (!activeUser) {
+              break;
+            }
             let taskList = '';
             let formattedTask = ''; // set up task collectors
             for (var i = 0; i < activeUser.tasks.length; i++) {

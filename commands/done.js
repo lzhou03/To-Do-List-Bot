@@ -22,6 +22,15 @@ module.exports = {
       else{
         var taskNum = args[0];
         //update completion status in db
+        //note: not sure if syntax correct, needs testing
+        const activeUser = await db.todos.users.find({ uid: uid }); // find user
+        if (activeUser) {
+          const selectedTask = await activeUser.tasks.find({ id: taskNum }); // find task
+          if (selectedTask) {
+            selectedTask.complete = !selectedTask.complete; // checks or unchecks item from list
+            await activeUser.save(); // saves change to database
+          }
+        }
 
         const embed = new MessageEmbed()
         .setColor("#FFFF00")
