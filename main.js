@@ -89,4 +89,7 @@ mongoose.connect(process.env.MONGODB_SRV, {
 }).catch((err) => {
   console.log(err);
 });
+
+var db = mongoose.connection();
+
 client.login(process.env.BOT_TOKEN);
