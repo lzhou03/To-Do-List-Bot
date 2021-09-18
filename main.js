@@ -56,6 +56,10 @@ client.on('message', message => {
 			//message.channel.send("abcd");
 			client.commands.get("done").execute(message, args, command, client, Discord);
 		}
+		else if(command === 'update'){
+			//message.channel.send("abcd");
+			client.commands.get("update").execute(message, args, command, client, Discord);
+		}
 
 
 
