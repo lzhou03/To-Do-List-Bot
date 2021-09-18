@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
 const mongoose = require('mongoose');
+const { prefix } = require('./config.json');
 
 client.once('ready', () => {
 	console.log('Ready!');
