@@ -2,7 +2,7 @@
   font-family: Open Sans, "Trebuchet MS", sans-serif;
 }
 body {
-  background-color: #2c2f33;
+  background-color: #5a71c2;
   color: #23272a;
 }
 header {
@@ -40,12 +40,15 @@ button {
   border: hidden;
 }
 .behind-button {
-  margin: 0px;
+  width: max-content;
+  text-align: center;
+  margin: auto;
   padding: 0px;
+  border-radius: 20px;
   background-color: #2c2f33;
 }
 button:hover {
-  opacity: 0.5;
+  opacity: 0.9;
 }
 p, h2, h3, dl, button {
   margin: 10px;
