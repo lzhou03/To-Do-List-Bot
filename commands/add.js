@@ -27,7 +27,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .setColor(process.env.COLOR)
-        .setTitle('Added Task: ' + taskName + " to " + date); //add task name: read from DB
+        .setTitle('Added Task: \"' + taskName + "\" to " + date.toString.slice(0,15)); //add task name: read from DB
         //.setDescription(args[0]);
 
         message.channel.send(embed);
