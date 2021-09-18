@@ -6,7 +6,7 @@ A Discord bot that allows you to manage a to-do list.
 
 ### Add [date] [task name]
 
-td! add [task name] will add the given task to your to-do list on a given date.
+td! add (date) [task name] will add the given task to your to-do list on a given date.
 if no date is specified, defaults to the last specified date.
 
 ### Done [task id]
