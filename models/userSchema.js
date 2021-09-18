@@ -3,7 +3,7 @@ const taskSchema = require('./taskSchema.js').schema;
 
 
 const userSchema = new mongoose.Schema({
-  uid: Number,
+  uid: {type: Number, unique: true},
   tasks: [taskSchema],
   optIn: Boolean,
   lastDate: Date
