@@ -58,10 +58,12 @@ module.exports = {
 
 
 
-        //add comand to read from DB here
+        mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true, useUnifiedTopology: true})
 
-
-
+        async function readListingByName(client, nameOfListing, userCollection) {
+          client.db(/*name of database goes here*/).collection(/*name of collection*/ userCollection).findOne({name: nameOfListing})
+        }
+        readListingByName(client, args, userCollection)
 
     }
 }
