@@ -8,15 +8,16 @@ module.exports = {
     description: 'adds an item to the to-do list',
     usage: `add`,
     async execute(message, args, command, client, Discord, db){
-        //separate parameters
+
         var uid = message.author.id;
+        //message.channel.send(uid);
 
-
+//if user doesn't exist, add new user
         user.countDocuments({uid: uid}, function (err, count){
           console.log(count);
           if(count===0){
 
-            const newUser = new user({id: message.author.id, optIn: false, lastDate: "09/28/2003"});
+            const newUser = new user({id: uid, optIn: false, lastDate: "09/28/2003"});
 
             newUser.save();
           }
@@ -24,7 +25,7 @@ module.exports = {
 
 
 
-
+//separate parameters
         var index = 1;
         var date = new Date(args[0]);
 
