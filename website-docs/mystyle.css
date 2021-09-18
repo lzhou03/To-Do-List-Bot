@@ -1,8 +1,13 @@
 * {
-  font-family: "Uni Sans", "Trebuchet MS", sans-serif;
+  font-family: Open Sans, "Trebuchet MS", sans-serif;
 }
 body {
-  background-color: #7289da;
+  background-color: #2c2f33;
+  color: #23272a;
+}
+header {
+  text-align: center;
+  background-color: #99aab5;
 }
 div {
   background-color: #99aab5;
@@ -22,7 +27,6 @@ button {
   border-radius: 12px;
   text-align: center;
   padding: 12px 15px;
-  color: #23272a;
   background-color: #7289da;
   float: none;
   font-weight: bold;
