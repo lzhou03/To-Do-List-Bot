@@ -3,11 +3,16 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'rm',
     category: 'write',
-    description: 'removes and item from the to-do list',
+    description: 'removes an item from the to-do list',
     usage: `rm`,
     async execute(message, args, command, client, Discord){
-        //const msg = await message.channel.send('executing...');
-
+        //check arguments
+        if (!args[0]){
+          message.channels.send("Please specify the task ID number.")
+        }
+        else{
+          var taskNum = args[0];
+        }
 
         //add comand to write to DB here
 

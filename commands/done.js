@@ -6,7 +6,13 @@ module.exports = {
     description: 'edits todo list message and database status',
     usage: `done`,
     async execute(message, args, command, client, Discord){
-        //const msg = await message.channel.send('executing...');
+      //check arguments
+      if (!args[0]){
+        message.channels.send("Please specify the task ID number.")
+      }
+      else{
+        var taskNum = args[0];
+      }
 
 
         //add comand to write to DB here
