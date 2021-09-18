@@ -3,24 +3,30 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="website-docs\mystyle.css">
+    <script src="website-docs/website.js"></script>
     <title>To-Do List Bot</title>
   </head>
   <body>
     <h2>To-Do List Bot</h2>
     <p>The To-Do List Bot allows you to manage a to-do list via Discord!</p>
-    <h3>Adding the Bot</h3>
-    <p>To add the bot to your server (add description later)</p>
-    <h3>Commands</h3>
-    <p>To use the bot, simply type any of the following commands:</p>
-    <dl>
-      <dt>td!add [item]</dt>
-      <dd>This command adds the item you specify to your to-do list.</dd>
-      <dt>td!done [item]</dt>
-      <dd>This command marks the item you specify as complete.</dd>
-      <dt>td!rm [item]</dt>
-      <dd>This command removes the item you specify from your to-do list.</dd>
-      <dt>td!list</dt>
-      <dd>This command lists all items on your to-do list.</dd>
-    </dl>
+    <div class="add-bot">
+      <h3>Adding the Bot</h3>
+      <p>To add the bot to your server, simply click this button!</p>
+      <button onclick = "addBot()">Add to your server!</button>
+    </div>
+    <div class="commands">
+      <h3>Commands</h3>
+      <p>To use the bot, simply type any of the following commands:</p>
+      <dl>
+        <dt>td!add [item]</dt>
+        <dd>This command adds the item you specify to your to-do list.</dd>
+        <dt>td!done [item]</dt>
+        <dd>This command marks the item you specify as complete.</dd>
+        <dt>td!rm [item]</dt>
+        <dd>This command removes the item you specify from your to-do list.</dd>
+        <dt>td!list</dt>
+        <dd>This command lists all items on your to-do list.</dd>
+      </dl>
+    </div>
   </body>
 </html>
