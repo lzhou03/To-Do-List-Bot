@@ -27,9 +27,9 @@ module.exports = {
         }
         mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true, useUnifiedTopology: true})
 
-        async function deleteListingByName(client, nameOfListing, userCollection) {
-          client.db(/*name of database goes here*/).collection(/*name of collection*/ userCollection).deleteOne({name: nameOfListing})
+        async function deleteListingByName(client, taskNum, userCollection) {
+          client.db(todo).collection(users).deleteOne({id: taskNum})
         }
-        deleteListingByName(client, args, userCollection)
+        deleteListingByName(client, taskNum, userCollection)
     }
 }
