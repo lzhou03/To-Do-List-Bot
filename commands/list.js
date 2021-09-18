@@ -57,7 +57,7 @@ module.exports = {
             message.channel.send(embed);
           }
           else{
-            const activeUser = await db.todos.users.find({ uid: uid }); // find user
+            const activeUser = await user.find({ uid: uid }); // find user
             if (!activeUser) {
               return;
             }
