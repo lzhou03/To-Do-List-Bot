@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const taskSchema = require('taskSchema.js');
-const mongoose = require('mongoose');
+const taskSchema = require('./taskSchema.js').schema;
+
 
 const userSchema = new mongoose.Schema({
   uid: String,
-  tasks: [todo],
+  tasks: [taskSchema],
   optIn: Boolean,
   lastDate: Date
 });

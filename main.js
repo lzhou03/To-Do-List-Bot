@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 const mongoose = require('mongoose');
 const { prefix } = require('./config.json');
-const guildSchema = require('./models/guildSchema.js')
+//const guildSchema = require('./models/guildSchema.js')
 
 
 
