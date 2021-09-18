@@ -49,6 +49,7 @@ module.exports = {
 
           const newTask = new task({name: taskName, date: date, complete: false, id: thisUser.tasks.length})
           thisUser.tasks.push(newTask);
+          await thisUser.save();
 
           //task.create({name: taskName, date: date, complete: false, id: User.countDocuments()});
 
