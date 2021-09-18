@@ -24,6 +24,30 @@ client.once('ready', () => {
 
 
 
+//what the bot does whenever a message is sent
+
+client.on('message', message => {
+	//if the author is the bot, ignor the message
+	if(message.author.id === client.user.id) return;
+
+	//if the message starts with the prefix, execute this.
+	if(message.content.startsWith(`${prefix}`)){
+		//separate commands and arguments
+		const args = message.content.slice(prefix.length).trim().split(' ');
+    const command = args.shift().toLowerCase();
+
+		if(command === 'ping'){
+			message.channel.send('pong!');
+		}
+
+
+
+
+	}
+
+
+})
+
 
 
 
