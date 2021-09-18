@@ -60,7 +60,7 @@ module.exports = {
             for (var i = 0; i < activeUser.tasks.length; i++) {
               if (activeUser[i].date == date) {
                 formattedTask = activeUser[i].name;
-                formattedTask += ' (id:' + activeUser[i].id.toString() + )';
+                formattedTask += ' (id:' + activeUser[i].id.toString() + ')';
                 if (activeUser[i].complete) {
                   formattedTask = '~~' + formattedTask + '~~'
                 } // assemble task line
