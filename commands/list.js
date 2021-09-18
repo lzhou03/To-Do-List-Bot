@@ -35,7 +35,7 @@ module.exports = {
 
           const embed = new MessageEmbed()
           .setColor("#9B59B6")
-          .setTitle('List of All Tasks ') // add date
+          .setTitle('__List of All Tasks__') // add date
           .setDescription(taskList);
 
           message.channel.send(embed);
