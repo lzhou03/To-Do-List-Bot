@@ -59,7 +59,7 @@ module.exports = {
           else{
             const activeUser = await db.todos.users.find({ uid: uid }); // find user
             if (!activeUser) {
-              break;
+              return;
             }
             let taskList = '';
             let formattedTask = ''; // set up task collectors
