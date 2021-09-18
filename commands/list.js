@@ -59,7 +59,7 @@ module.exports = {
             message.channel.send(embed);
           }
           else{
-            const activeUser = await db.userSchema.findOne({ uid: userid }); // find user
+            const activeUser = await userSchema.findOne({ uid: userid }); // find user
             if (!activeUser) {
               return;
             }
