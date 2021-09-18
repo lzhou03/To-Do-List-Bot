@@ -29,7 +29,7 @@ client.once('ready', () => {
 //what the bot does whenever a message is sent
 
 client.on('message', message => {
-	//if the author is the bot, ignor the message
+	//if the author is the bot, ignore the message
 	if(message.author.id === client.user.id) return;
 
 	//if the message starts with the prefix, execute this.

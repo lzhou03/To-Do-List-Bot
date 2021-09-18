@@ -7,7 +7,7 @@ module.exports = {
     category: 'read',
     description: 'reads and prints the to-do list',
     usage: `list`,
-    async execute(message, args, command, client, Discord, db){
+    async execute(message, args, command, client, Discord){
         //check args
         if(!args[0]){
           //list todays list
@@ -21,13 +21,22 @@ module.exports = {
 
         }
         else if(args[0]==='all'){
-          //list all
-
+          const activeUser = await user.find({ uid: uid }); // find user
+          let taskList = '';
+          let formattedTask = ''; // set up task collectors
+          for (var i = 0; i < activeUser.tasks.length; i++) {
+            formattedTask = activeUser[i].name;
+            formattedTask += ' (id:' + activeUser[i].id.toString() + ', date:' + activeUser[i].date.toString() + ')';
+            if (activeUser[i].complete) {
+              formattedTask = '~~' + formattedTask + '~~'
+            } // assemble task line
+            taskList += formattedTask + '\n'; // add task line to list
+          }
 
           const embed = new MessageEmbed()
           .setColor("#9B59B6")
           .setTitle('List of All Tasks ') // add date
-          .setDescription(args[0]);
+          .setDescription(taskList);
 
           message.channel.send(embed);
 
@@ -45,25 +54,29 @@ module.exports = {
             message.channel.send(embed);
           }
           else{
+            const activeUser = await user.find({ uid: uid }); // find user
+            let taskList = '';
+            let formattedTask = ''; // set up task collectors
+            for (var i = 0; i < activeUser.tasks.length; i++) {
+              if (activeUser[i].date == date) {
+                formattedTask = activeUser[i].name;
+                formattedTask += ' (id:' + activeUser[i].id.toString() + )';
+                if (activeUser[i].complete) {
+                  formattedTask = '~~' + formattedTask + '~~'
+                } // assemble task line
+                taskList += formattedTask + '\n'; // add task line to list
+              }
+            }
+
             const embed = new MessageEmbed()
             .setColor("#9B59B6")//purple
             .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
-            .setDescription("~~strikethrough test~~");
+            .setDescription(taskList);
 
             message.channel.send(embed);
           }
 
         }
-
-
-
-
-        mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true, useUnifiedTopology: true})
-
-        async function readListingByName(client, nameOfListing, userCollection) {
-          client.db(/*name of database goes here*/).collection(/*name of collection*/ userCollection).findOne({name: nameOfListing})
-        }
-        readListingByName(client, args, userCollection)
 
     }
 }
