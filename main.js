@@ -37,7 +37,7 @@ client.on('message', message => {
 		const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
 
-		if(command === 'hello' || command = 'Hello'){
+		if(command === 'hello' || command === 'Hello'){
 			message.channel.send('Hi there!');
 		}
 		else if(command === 'add'){

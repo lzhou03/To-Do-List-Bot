@@ -7,7 +7,19 @@ module.exports = {
     usage: `add`,
     async execute(message, args, command, client, Discord){
         //separate parameters
-        
+        var index = 1;
+        var date = new Date(args[0]);
+
+        if(isNaN(date)){
+          index = 0;
+          //date = lastDate;
+        }
+
+        var taskName = "";
+        while(args[index]){
+          taskName += " " + args[index];
+          index++;
+        }
 
         //add comand to write to DB here
 
@@ -15,7 +27,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .setColor(process.env.COLOR)
-        .setTitle('Added' + args[0]); //add task name: read from DB
+        .setTitle('Added Task: \"' + taskName + "\" to " + date.toString.slice(0,15)); //add task name: read from DB
         //.setDescription(args[0]);
 
         message.channel.send(embed);
