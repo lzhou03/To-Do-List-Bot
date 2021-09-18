@@ -31,7 +31,7 @@ module.exports = {
             formattedTask = activeUser[i].name;
             formattedTask += ' (id:' + activeUser[i].id.toString() + ', date:' + activeUser[i].date.toString() + ')';
             if (activeUser[i].complete) {
-              formattedTask = '~~' + formattedTask + '~~'
+              formattedTask = '~~' + formattedTask + '~~';
             } // assemble task line
             taskList += formattedTask + '\n'; // add task line to list
           }
@@ -68,7 +68,7 @@ module.exports = {
                 formattedTask = activeUser[i].name;
                 formattedTask += ' (id:' + activeUser[i].id.toString() + ')';
                 if (activeUser[i].complete) {
-                  formattedTask = '~~' + formattedTask + '~~'
+                  formattedTask = '~~' + formattedTask + '~~';
                 } // assemble task line
                 taskList += formattedTask + '\n'; // add task line to list
               }
