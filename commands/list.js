@@ -21,7 +21,7 @@ module.exports = {
 
         }
         else if(args[0]==='all'){
-          const activeUser = await user.findOne({ uid: uid }); // find user
+          const activeUser = await db.users.findOne({ uid: uid }); // find user
           if (!activeUser) {
             return;
           }
@@ -57,7 +57,7 @@ module.exports = {
             message.channel.send(embed);
           }
           else{
-            const activeUser = await user.findOne({ uid: uid }); // find user
+            const activeUser = await db.users.findOne({ uid: uid }); // find user
             if (!activeUser) {
               return;
             }
