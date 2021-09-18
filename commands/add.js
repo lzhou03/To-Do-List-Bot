@@ -14,62 +14,66 @@ module.exports = {
         //message.channel.send(uid);
 
 //if user doesn't exist, add new user
-        User.countDocuments({uid: userid}, function (err, count, userid){
+        var count = await User.countDocuments({uid: userid})
+          console.log(userid);
           console.log(count);
           if(count===0){
 
-            const newUser = new User({id: 123, optIn: false, lastDate: "09/28/2003"});
+            const newUser = new User({uid: userid, optIn: false, lastDate: "09/28/2003"});
 
             newUser.save();
+            console.log('added user '+userid);
           }
-        });
+          else{
 
 
 
 //separate parameters
-        var index = 1;
-        var date = new Date(args[0]);
+          var index = 1;
+          var date = new Date(args[0]);
 
-        if(isNaN(date)){
-          index = 0;
-          //date = lastDate;
-        }
+          if(isNaN(date)){
+            index = 0;
+            //date = lastDate;
+          }
 
-        var taskName = "";
-        while(args[index]){
-          taskName += " " + args[index];
-          index++;
-        }
+          var taskName = "";
+          while(args[index]){
+            taskName += " " + args[index];
+            index++;
+          }
 
-        var thisUser = User.findOne({uid : userid});
+          var thisUser = User.findOne({'uid' : userid});
+          console.log(thisUser.uid);
 
-        const newTask = new task({name: taskName, date: date, complete: false, id: User.tasks.length})
-        thisUser.tasks.push(newTask);
+          const newTask = new task({name: taskName, date: date, complete: false, id: thisUser.tasks.length})
+          thisUser.tasks.push(newTask);
 
-        //task.create({name: taskName, date: date, complete: false, id: User.countDocuments()});
+          //task.create({name: taskName, date: date, complete: false, id: User.countDocuments()});
 
-        //let doc = await users.findOneAndUpdate({uid: userid}, {tasks: taskName});
-
-
+          //let doc = await users.findOneAndUpdate({uid: userid}, {tasks: taskName});
 
 
-        // lists all databases, client parameter may need adjustment
-        async function listDatabases(client) {
-            const databasesList = await client.db().admin().listDatabases()
 
-            console.log("Databases:");
-            databasesList.databases.forEach( db => {
-            console.log(`- ${db.name}`)
-           })
-        }
-        listDatabases(client)
-        // lists all databases, client parameter may need adjustment
 
-        const embed = new MessageEmbed()
-        .setColor("GREEN")
-        .setTitle('Added Task: \"' + taskName + "\" to " + date.toString().slice(0,15)); //add task name: read from DB
-        //.setDescription(args[0]);
+          // lists all databases, client parameter may need adjustment
+          async function listDatabases(client) {
+              const databasesList = await client.db().admin().listDatabases()
 
-        message.channel.send(embed);
+              console.log("Databases:");
+              databasesList.databases.forEach( db => {
+              console.log(`- ${db.name}`)
+             })
+          }
+          listDatabases(client)
+          // lists all databases, client parameter may need adjustment
+
+          const embed = new MessageEmbed()
+          .setColor("GREEN")
+          .setTitle('Added Task: \"' + taskName + "\" to " + date.toString().slice(0,15)); //add task name: read from DB
+          //.setDescription(args[0]);
+
+          message.channel.send(embed);
     }
+  }
 }
