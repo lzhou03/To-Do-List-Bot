@@ -16,6 +16,11 @@ td! done <item> will check off <item> on your to-do list.
 
 td! rm <item> will remove <item> from your to-do list.
 
-### List 
+### List [date]
 
 td! list will list all items on your to-do list, along with their ids.
+you can also specify a specific date
+
+
+### other ideas
+list calendar format
