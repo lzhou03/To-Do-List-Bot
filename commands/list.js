@@ -9,6 +9,8 @@ module.exports = {
     usage: `list`,
     async execute(message, args, command, client, Discord, db){
         //check args
+        var userid = message.author.id;
+
         if(!args[0]){
           //list todays list
           const embed = new MessageEmbed()
@@ -21,7 +23,7 @@ module.exports = {
 
         }
         else if(args[0]==='all'){
-          const activeUser = await userSchema.findOne({ uid: uid }); // find user
+          const activeUser = await userSchema.findOne({ uid: userid }); // find user
           if (!activeUser) {
             return;
           }
@@ -57,7 +59,7 @@ module.exports = {
             message.channel.send(embed);
           }
           else{
-            const activeUser = await db.userSchema.findOne({ uid: uid }); // find user
+            const activeUser = await db.userSchema.findOne({ uid: userid }); // find user
             if (!activeUser) {
               return;
             }
