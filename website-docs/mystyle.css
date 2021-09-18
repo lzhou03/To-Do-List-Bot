@@ -1,9 +1,9 @@
 * {
-  font-family: Open Sans, "Trebuchet MS", sans-serif;
+  font-family: Garamond, serif;
 }
 body {
-  background-color: #5466a2;
-  color: #23272a;
+  background-color: #2c2f33;
+  color: #ffffff;
 }
 header {
   text-align: center;
@@ -16,7 +16,7 @@ main {
   display: flex;
 }
 header, div {
-  background-color: #99aab5;
+  background-color: #7289da;
   border-radius: 12px;
   margin: 2%;
 }
@@ -33,23 +33,18 @@ button {
   border-radius: 12px;
   text-align: center;
   padding: 12px 15px;
-  color: #23272a;
-  background-color: #7289da;
+  color: #ffffff;
+  background-color: #2c2f33;
   float: none;
   font-weight: bold;
   border: hidden;
 }
-.behind-button {
-  width: max-content;
-  text-align: center;
-  margin: auto;
-  padding: 0px;
-  border-radius: 20px;
-  background-color: #2c2f33;
-}
 button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 p, h2, h3, dl, button {
   margin: 10px;
+}
+h3 {
+  text-align: center;
 }
