@@ -6,7 +6,7 @@ module.exports = {
     description: 'adds an item to the to-do list',
     usage: `add`,
     async execute(message, args, command, client, Discord){
-        //const msg = await message.channel.send('executing...');
+        //separate parameters
 
 
         //add comand to write to DB here
@@ -15,7 +15,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .setColor(process.env.COLOR)
-        .setTitle('Added' + args[0]); //add task name
+        .setTitle('Added' + args[0]); //add task name: read from DB
         //.setDescription(args[0]);
 
         message.channel.send(embed);
