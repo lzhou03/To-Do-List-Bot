@@ -7,7 +7,7 @@ module.exports = {
     category: 'read',
     description: 'reads and prints the to-do list',
     usage: `list`,
-    async execute(message, args, command, client, Discord){
+    async execute(message, args, command, client, Discord, db){
         //check args
         if(!args[0]){
           //list todays list
