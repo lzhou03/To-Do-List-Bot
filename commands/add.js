@@ -44,7 +44,7 @@ module.exports = {
             index++;
           }
 
-          var thisUser = userSchema.findOne({uid : userid});
+          var thisUser = await userSchema.findOne({uid : userid});
           console.log(thisUser);
 
           const newTask = new task({name: taskName, date: date, complete: false, id: thisUser.tasks.length})
