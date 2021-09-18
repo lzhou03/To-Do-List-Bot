@@ -12,18 +12,18 @@ module.exports = {
       }
       else{
         var taskNum = args[0];
-      }
-
-
-        //add comand to write to DB here
-
-
+        //update completion status in db
 
         const embed = new MessageEmbed()
-        .setColor(process.env.COLOR)
+        .setColor("#FFFF00")
         .setTitle("You've completed Task: "+args[0] + "!") //add task name
         .setDescription("Nice Work!");
 
         message.channel.send(embed);
+
+      }
+
+
+
     }
 }

@@ -22,7 +22,7 @@ module.exports = {
           //list all
 
           const embed = new MessageEmbed()
-          .setColor(process.env.COLOR)
+          .setColor("#9B59B6")
           .setTitle('List of All Tasks ') // add date
           .setDescription(args[0]);
 
@@ -33,9 +33,9 @@ module.exports = {
         }
         else{
           var date = new Date(args[0]);
-          if (date === "Invalid Date"){
+          if (isNaN(date)){
             const embed = new MessageEmbed()
-            .setColor(process.env.COLOR)
+            .setColor("#E74C3C")//dark red
             .setTitle('Invalid Date!')
             .setDescription(args[0]);
 
@@ -43,9 +43,9 @@ module.exports = {
           }
           else{
             const embed = new MessageEmbed()
-            .setColor(process.env.COLOR)
-            .setTitle('To-do '+date) // add date
-            .setDescription(args[0]);
+            .setColor("#9B59B6")//purple
+            .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
+            .setDescription("~~strikethrough test~~");
 
             message.channel.send(embed);
           }
