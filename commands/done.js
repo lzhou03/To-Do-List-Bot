@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
-const userSchema = require('userSchema.js');
+const userSchema = require('../models/userSchema.js');
 
 module.exports = {
     name: 'done',
@@ -22,11 +22,6 @@ module.exports = {
       else{
         var taskNum = args[0];
         //update completion status in db
-        //note: not sure if syntax correct, needs testing
-        const activeUser = await user.find({ uid: uid });
-        const selectedTask = await activeUser.tasks.find({ id: taskNum }); // find task
-        selectedTask.complete = !selectedTask.complete; // checks or unchecks item from list
-        await activeUser.save(); // saves change to database
 
         const embed = new MessageEmbed()
         .setColor("#FFFF00")

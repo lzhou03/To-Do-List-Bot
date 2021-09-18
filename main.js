@@ -43,23 +43,23 @@ client.on('message', message => {
 		}
 		else if(command === 'add'){
 			//message.channel.send("abcd");
-			client.commands.get("add").execute(message, args, command, client, Discord);
+			client.commands.get("add").execute(message, args, command, client, Discord, db);
 		}
 		else if(command === 'rm'){
 			//message.channel.send("abcd");
-			client.commands.get("rm").execute(message, args, command, client, Discord);
+			client.commands.get("rm").execute(message, args, command, client, Discord, db);
 		}
 		else if(command === 'list'){
 			//message.channel.send("abcd");
-			client.commands.get("list").execute(message, args, command, client, Discord);
+			client.commands.get("list").execute(message, args, command, client, Discord, db);
 		}
 		else if(command === 'done'){
 			//message.channel.send("abcd");
-			client.commands.get("done").execute(message, args, command, client, Discord);
+			client.commands.get("done").execute(message, args, command, client, Discord, db);
 		}
 		else if(command === 'update'){
 			//message.channel.send("abcd");
-			client.commands.get("update").execute(message, args, command, client, Discord);
+			client.commands.get("update").execute(message, args, command, client, Discord, db);
 		}
 
 
@@ -90,6 +90,6 @@ mongoose.connect(process.env.MONGODB_SRV, {
   console.log(err);
 });
 
-var db = mongoose.connection();
+var db = mongoose.connection;
 
 client.login(process.env.BOT_TOKEN);

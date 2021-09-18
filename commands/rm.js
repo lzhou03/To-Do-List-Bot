@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
-const userSchema = require('../models/userSchema.js');
+const userSchema = require('../models/userSchema.js').schema;
 
 module.exports = {
     name: 'rm',

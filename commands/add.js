@@ -9,6 +9,16 @@ module.exports = {
     usage: `add`,
     async execute(message, args, command, client, Discord){
         //separate parameters
+        var uid = message.author.id;
+        const activeUser = await user.find({ uid: uid });
+        if(activeUser){
+          const newUser = new user({id: message.author.id, optIn: false, lastDate: "09/28/2003"});
+
+          todos.users.push(newUser);
+          todos.save();
+        }
+
+
         var index = 1;
         var date = new Date(args[0]);
 
@@ -24,6 +34,7 @@ module.exports = {
         }
 
         //add comand to write to DB here
+
 
 
 
