@@ -25,9 +25,11 @@ module.exports = {
 
           message.channel.send(embed);
         }
+        mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true, useUnifiedTopology: true})
 
-        //add comand to write to DB here
-
-
+        async function deleteListingByName(client, nameOfListing, userCollection) {
+          client.db(/*name of database goes here*/).collection(/*name of collection*/ userCollection).deleteOne({name: nameOfListing})
+        }
+        deleteListingByName(client, args, userCollection)
     }
 }
