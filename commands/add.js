@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const user = require('../models/userSchema.js');
+const task = require('../models/taskSchema.js');
 
 module.exports = {
     name: 'add',
@@ -9,15 +10,15 @@ module.exports = {
     usage: `add`,
     async execute(message, args, command, client, Discord, db){
 
-        var uid = message.author.id;
+        var userid = message.author.id;
         //message.channel.send(uid);
 
 //if user doesn't exist, add new user
-        user.countDocuments({uid: uid}, function (err, count){
+        user.countDocuments({uid: userid}, function (err, count, userid){
           console.log(count);
           if(count===0){
 
-            const newUser = new user({id: uid, optIn: false, lastDate: "09/28/2003"});
+            const newUser = new user({id: userid, optIn: false, lastDate: "09/28/2003"});
 
             newUser.save();
           }
@@ -40,7 +41,11 @@ module.exports = {
           index++;
         }
 
-        //add comand to write to DB here
+        const newTask = new task({name: taskName, date: date, complete: false, id: user.countDocuments()})
+        newTask.save()
+
+
+
         // lists all databases, client parameter may need adjustment
         async function listDatabases(client) {
             const databasesList = await client.db().admin().listDatabases()
