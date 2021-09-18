@@ -19,7 +19,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
 	console.log('Ready!');
-  client.channels.cache.get("888802387983212554").send("a");
+  client.channels.cache.get("888802387983212554").send("ready");
 });
 
 
@@ -38,6 +38,10 @@ client.on('message', message => {
 
 		if(command === 'ping'){
 			message.channel.send('pong!');
+		}
+		if(command === 'add'){
+			//message.channel.send("abcd");
+			client.commands.get("add").execute(message, args, command, client, Discord);
 		}
 
 

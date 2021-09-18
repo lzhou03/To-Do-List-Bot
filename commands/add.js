@@ -5,8 +5,13 @@ module.exports = {
     category: 'write',
     description: 'adds an item to the to-do list',
     usage: `add`,
-    run: async (client, message, args) => {
-        const msg = await message.channel.send('🏓 Pinging...');
+    async execute(message, args, command, client, Discord){
+        //const msg = await message.channel.send('executing...');
+
+
+        //add comand to write to DB here
+
+
 
         const embed = new MessageEmbed()
         .setColor(process.env.COLOR)
