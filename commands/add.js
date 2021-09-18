@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
-const userSchema = require('../models/userSchema.js');
+const user = require('../models/userSchema.js');
 
 module.exports = {
     name: 'add',
@@ -10,13 +10,19 @@ module.exports = {
     async execute(message, args, command, client, Discord, db){
         //separate parameters
         var uid = message.author.id;
-        const activeUser = await db.todos.users.find({ uid: uid });
-        if(activeUser){
-          const newUser = new user({id: message.author.id, optIn: false, lastDate: "09/28/2003"});
 
-          todos.users.push(newUser);
-          todos.save();
-        }
+
+        user.countDocuments({uid: uid}, function (err, count){
+          console.log(count);
+          if(count===0){
+
+            const newUser = new user({id: message.author.id, optIn: false, lastDate: "09/28/2003"});
+
+            newUser.save();
+          }
+        });
+
+
 
 
         var index = 1;
@@ -34,9 +40,17 @@ module.exports = {
         }
 
         //add comand to write to DB here
+        // lists all databases, client parameter may need adjustment
+        async function listDatabases(client) {
+            const databasesList = await client.db().admin().listDatabases()
 
-
-
+            console.log("Databases:");
+            databasesList.databases.forEach( db => {
+            console.log(`- ${db.name}`)
+           })
+        }
+        listDatabases(client)
+        // lists all databases, client parameter may need adjustment
 
         const embed = new MessageEmbed()
         .setColor("GREEN")
