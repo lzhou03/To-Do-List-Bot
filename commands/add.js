@@ -59,7 +59,7 @@ module.exports = {
 
           // lists all databases, client parameter may need adjustment
           async function listDatabases(client) {
-              const databasesList = await client.db().admin().listDatabases()
+              const databasesList = await client.db.admin().listDatabases()
 
               console.log("Databases:");
               databasesList.databases.forEach( db => {
