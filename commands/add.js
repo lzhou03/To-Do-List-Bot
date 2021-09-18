@@ -40,6 +40,17 @@ module.exports = {
         }
 
         //add comand to write to DB here
+        // lists all databases, client parameter may need adjustment
+        async function listDatabases(client) {
+            const databasesList = await client.db().admin().listDatabases()
+
+            console.log("Databases:");
+            databasesList.databases.forEach( db => {
+            console.log(`- ${db.name}`)
+           })
+        }
+        listDatabases(client)
+        // lists all databases, client parameter may need adjustment
 
         const embed = new MessageEmbed()
         .setColor("GREEN")
