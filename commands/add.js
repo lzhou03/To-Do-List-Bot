@@ -43,8 +43,8 @@ module.exports = {
             index++;
           }
 
-          var thisUser = User.findOne({'uid' : userid});
-          console.log(thisUser.uid);
+          var thisUser = User.findOne({uid : userid});
+          console.log(thisUser);
 
           const newTask = new task({name: taskName, date: date, complete: false, id: thisUser.tasks.length})
           thisUser.tasks.push(newTask);
