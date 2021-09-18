@@ -27,17 +27,16 @@ module.exports = {
           if (!activeUser) {
             return;
           }
-          // let taskList = '';
-          // let formattedTask = ''; // set up task collectors
-          // for (var i = 0; i < activeUser.tasks.length; i++) {
-          //   formattedTask = activeUser[i].name;
-          //   formattedTask += ' (id:' + activeUser[i].id.toString() + ', date:' + activeUser[i].date.toString() + ')';
-          //   if (activeUser[i].complete) {
-          //     formattedTask = '~~' + formattedTask + '~~';
-          //   } // assemble task line
-          //   taskList += formattedTask + '\n'; // add task line to list
-          // }
-          console.log(activeUser[0]);
+          let taskList = '';
+          let formattedTask = ''; // set up task collectors
+          for (var i = 0; i < activeUser.tasks.length; i++) {
+            formattedTask = activeUser.tasks[i].name;
+            formattedTask += ' (id:' + activeUser.tasks[i].id.toString() + ', date:' + activeUser.tasks[i].date.toString() + ')';
+            if (activeUser.tasks[i].complete) {
+              formattedTask = '~~' + formattedTask + '~~';
+            } // assemble task line
+            taskList += formattedTask + '\n'; // add task line to list
+          }
 
           const embed = new MessageEmbed()
           .setColor("#9B59B6")
@@ -68,9 +67,9 @@ module.exports = {
             let formattedTask = ''; // set up task collectors
             for (var i = 0; i < activeUser.tasks.length; i++) {
               if (activeUser[i].date == date) {
-                formattedTask = activeUser[i].name;
-                formattedTask += ' (id:' + activeUser[i].id.toString() + ')';
-                if (activeUser[i].complete) {
+                formattedTask = activeUser.tasks[i].name;
+                formattedTask += ' (id:' + activeUser.tasks[i].id.toString() + ')';
+                if (activeUser.tasks[i].complete) {
                   formattedTask = '~~' + formattedTask + '~~';
                 } // assemble task line
                 taskList += formattedTask + '\n'; // add task line to list
