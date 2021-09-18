@@ -7,22 +7,25 @@ module.exports = {
     usage: `rm`,
     async execute(message, args, command, client, Discord){
         //check arguments
-        if (!args[0]){
-          message.channels.send("Please specify the task ID number.")
+        var uid = message.author.id;
+        if (args[0]%1){
+          const embed = new MessageEmbed()
+          .setColor("RED")
+          .setTitle("Please specify the task ID number.");
+
+          message.channel.send(embed);
         }
         else{
           var taskNum = args[0];
+          const embed = new MessageEmbed()
+          .setColor("YELLOW")
+          .setTitle("Removed " + args[0] + " from "); //add task name, task date
+
+          message.channel.send(embed);
         }
 
         //add comand to write to DB here
 
 
-
-        const embed = new MessageEmbed()
-        .setColor(process.env.COLOR)
-        .setTitle("Removed " + args[0]); //add task name
-        //.setDescription(args[0]); //add task name
-
-        message.channel.send(embed);
     }
 }

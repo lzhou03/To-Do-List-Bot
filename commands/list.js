@@ -20,6 +20,7 @@ module.exports = {
         }
         else if(args[0]==='all'){
           //list all
+          
 
           const embed = new MessageEmbed()
           .setColor("#9B59B6")
