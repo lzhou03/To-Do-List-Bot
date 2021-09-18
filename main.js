@@ -20,6 +20,7 @@ for(const file of commandFiles){
 client.once('ready', () => {
 	console.log('Ready!');
   client.channels.cache.get("888802387983212554").send("ready");
+	client.user.setActivity(`over you 24/7 O_O`, {type: 'WATCHING'});
 });
 
 
@@ -39,9 +40,21 @@ client.on('message', message => {
 		if(command === 'ping'){
 			message.channel.send('pong!');
 		}
-		if(command === 'add'){
+		else if(command === 'add'){
 			//message.channel.send("abcd");
 			client.commands.get("add").execute(message, args, command, client, Discord);
+		}
+		else if(command === 'rm'){
+			//message.channel.send("abcd");
+			client.commands.get("rm").execute(message, args, command, client, Discord);
+		}
+		else if(command === 'list'){
+			//message.channel.send("abcd");
+			client.commands.get("list").execute(message, args, command, client, Discord);
+		}
+		else if(command === 'done'){
+			//message.channel.send("abcd");
+			client.commands.get("done").execute(message, args, command, client, Discord);
 		}
 
 

@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
     name: 'done',
     category: 'write',
@@ -13,7 +15,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .setColor(process.env.COLOR)
-        .setTitle("You've completed Task "+args[0] + "!");
+        .setTitle("You've completed Task: "+args[0] + "!") //add task name
         .setDescription("Nice Work!");
 
         message.channel.send(embed);

@@ -15,8 +15,8 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .setColor(process.env.COLOR)
-        .setTitle('Added')
-        .setDescription(args[0]);
+        .setTitle('Added' + args[0]); //add task name
+        //.setDescription(args[0]);
 
         message.channel.send(embed);
     }

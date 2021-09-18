@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
     name: 'rm',
     category: 'write',
@@ -13,8 +15,8 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .setColor(process.env.COLOR)
-        .setTitle("Removed Task" + args[0]) //add task name
-        .setDescription(args[0]);
+        .setTitle("Removed " + args[0]); //add task name
+        //.setDescription(args[0]); //add task name
 
         message.channel.send(embed);
     }
