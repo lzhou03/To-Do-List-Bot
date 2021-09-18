@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const mongoose = require('mongoose');
 
 module.exports = {
     name: 'done',
