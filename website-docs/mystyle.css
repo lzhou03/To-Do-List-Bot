@@ -1,11 +1,31 @@
+* {
+  font-family: "Uni Sans", "Trebuchet MS", sans-serif;
+}
 body {
-  background-color: lightblue;
+  background-color: #7289da;
+}
+div {
+  background-color: #99aab5;
+  border-radius: 12px;
+  margin: 2%;
 }
 .add-bot {
-  width: 50%;
+  width: 45%;
   float: left
 }
 .commands {
-  width: 50%;
+  width: 45%;
   float: right;
+}
+button {
+  border-radius: 12px;
+  text-align: center;
+  padding: 12px 15px;
+  color: #23272a;
+  background-color: #7289da;
+  float: none;
+  font-weight: bold;
+}
+p, h2, h3, dl, button {
+  margin: 10px;
 }
