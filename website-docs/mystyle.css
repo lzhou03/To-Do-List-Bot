@@ -11,7 +11,8 @@ div {
 }
 .add-bot {
   width: 45%;
-  float: left
+  float: left;
+  text-align: center;
 }
 .commands {
   width: 45%;
