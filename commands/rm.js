@@ -8,7 +8,7 @@ module.exports = {
     async execute(message, args, command, client, Discord){
         //check arguments
         var uid = message.author.id;
-        if (args[0]%1){
+        if (args[0]%1!== 0){
           const embed = new MessageEmbed()
           .setColor("RED")
           .setTitle("Please specify the task ID number.");

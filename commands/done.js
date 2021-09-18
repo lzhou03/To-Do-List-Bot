@@ -7,8 +7,15 @@ module.exports = {
     usage: `done`,
     async execute(message, args, command, client, Discord){
       //check arguments
-      if (!args[0]){
-        message.channels.send("Please specify the task ID number.")
+
+
+      var uid = message.author.id;
+      if (args[0]%1 !== 0){
+        const embed = new MessageEmbed()
+        .setColor("RED")
+        .setTitle("Please specify the task ID number.");
+
+        message.channel.send(embed);
       }
       else{
         var taskNum = args[0];
