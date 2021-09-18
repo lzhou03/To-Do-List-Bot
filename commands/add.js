@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
-const user = require('../models/userSchema.js');
+const User = require('../models/userSchema.js');
 const task = require('../models/taskSchema.js');
 
 module.exports = {
@@ -14,11 +14,11 @@ module.exports = {
         //message.channel.send(uid);
 
 //if user doesn't exist, add new user
-        user.countDocuments({uid: userid}, function (err, count, userid){
+        User.countDocuments({uid: userid}, function (err, count, userid){
           console.log(count);
           if(count===0){
 
-            const newUser = new user({id: userid, optIn: false, lastDate: "09/28/2003"});
+            const newUser = new User({id: 123, optIn: false, lastDate: "09/28/2003"});
 
             newUser.save();
           }
@@ -41,8 +41,15 @@ module.exports = {
           index++;
         }
 
-        const newTask = new task({name: taskName, date: date, complete: false, id: user.countDocuments()})
-        newTask.save()
+        var thisUser = User.findOne({uid : userid});
+
+        const newTask = new task({name: taskName, date: date, complete: false, id: User.tasks.length})
+        thisUser.tasks.push(newTask);
+
+        //task.create({name: taskName, date: date, complete: false, id: User.countDocuments()});
+
+        //let doc = await users.findOneAndUpdate({uid: userid}, {tasks: taskName});
+
 
 
 
