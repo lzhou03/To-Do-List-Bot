@@ -7,7 +7,7 @@ module.exports = {
     usage: `add`,
     async execute(message, args, command, client, Discord){
         //separate parameters
-
+        
 
         //add comand to write to DB here
 

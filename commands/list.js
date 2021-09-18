@@ -11,11 +11,11 @@ module.exports = {
 
         //add comand to read from DB here
 
-
+        
 
         const embed = new MessageEmbed()
         .setColor(process.env.COLOR)
-        .setTitle('List') // add date
+        .setTitle('List: ') // add date
         .setDescription(args[0]);
 
         message.channel.send(embed);
