@@ -37,6 +37,15 @@ button {
   background-color: #7289da;
   float: none;
   font-weight: bold;
+  border: hidden;
+}
+.behind-button {
+  margin: 0px;
+  padding: 0px;
+  background-color: #2c2f33;
+}
+button:hover {
+  opacity: 0.5;
 }
 p, h2, h3, dl, button {
   margin: 10px;
