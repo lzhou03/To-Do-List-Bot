@@ -1,13 +1,13 @@
 const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
-const userSchema = require('../models/userSchema.js').schema;
+const userSchema = require('../models/userSchema.js');
 
 module.exports = {
     name: 'list',
     category: 'read',
     description: 'reads and prints the to-do list',
     usage: `list`,
-    async execute(message, args, command, client, Discord){
+    async execute(message, args, command, client, Discord, db){
         //check args
         if(!args[0]){
           //list todays list

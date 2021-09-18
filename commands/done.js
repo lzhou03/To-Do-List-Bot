@@ -7,7 +7,7 @@ module.exports = {
     category: 'write',
     description: 'edits todo list message and database status',
     usage: `done`,
-    async execute(message, args, command, client, Discord){
+    async execute(message, args, command, client, Discord, db){
       //check arguments
 
 

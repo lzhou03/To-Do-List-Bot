@@ -6,7 +6,7 @@ module.exports = {
     category: 'edit',
     description: 'updates printed to-do list',
     usage: `update`,
-    async execute(message, args, command, client, Discord){
+    async execute(message, args, command, client, Discord, db){
         //check arguments
         var uid = message.author.id;
         if (args[0]%1!== 0){

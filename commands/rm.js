@@ -7,7 +7,7 @@ module.exports = {
     category: 'write',
     description: 'removes an item from the to-do list',
     usage: `rm`,
-    async execute(message, args, command, client, Discord){
+    async execute(message, args, command, client, Discord, db){
         //check arguments
         var uid = message.author.id;
         if (args[0]%1!== 0){

@@ -7,10 +7,10 @@ module.exports = {
     category: 'write',
     description: 'adds an item to the to-do list',
     usage: `add`,
-    async execute(message, args, command, client, Discord){
+    async execute(message, args, command, client, Discord, db){
         //separate parameters
         var uid = message.author.id;
-        const activeUser = await user.find({ uid: uid });
+        const activeUser = await db.todos.user.find({ uid: uid });
         if(activeUser){
           const newUser = new user({id: message.author.id, optIn: false, lastDate: "09/28/2003"});
 
