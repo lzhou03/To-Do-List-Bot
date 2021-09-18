@@ -27,16 +27,17 @@ module.exports = {
           if (!activeUser) {
             return;
           }
-          let taskList = '';
-          let formattedTask = ''; // set up task collectors
-          for (var i = 0; i < activeUser.tasks.length; i++) {
-            formattedTask = activeUser[i].name;
-            formattedTask += ' (id:' + activeUser[i].id.toString() + ', date:' + activeUser[i].date.toString() + ')';
-            if (activeUser[i].complete) {
-              formattedTask = '~~' + formattedTask + '~~';
-            } // assemble task line
-            taskList += formattedTask + '\n'; // add task line to list
-          }
+          // let taskList = '';
+          // let formattedTask = ''; // set up task collectors
+          // for (var i = 0; i < activeUser.tasks.length; i++) {
+          //   formattedTask = activeUser[i].name;
+          //   formattedTask += ' (id:' + activeUser[i].id.toString() + ', date:' + activeUser[i].date.toString() + ')';
+          //   if (activeUser[i].complete) {
+          //     formattedTask = '~~' + formattedTask + '~~';
+          //   } // assemble task line
+          //   taskList += formattedTask + '\n'; // add task line to list
+          // }
+          console.log(activeUser[0]);
 
           const embed = new MessageEmbed()
           .setColor("#9B59B6")
