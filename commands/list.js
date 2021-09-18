@@ -44,7 +44,6 @@ module.exports = {
           .setDescription(taskList);
 
           message.channel.send(embed);
-          console.log("message sent")
 
 
 
