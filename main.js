@@ -4,6 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 const mongoose = require('mongoose');
 const { prefix } = require('./config.json');
+const guildSchema = require('./models/guildSchema.js')
 
 
 
@@ -66,6 +67,13 @@ client.on('message', message => {
 
 	}
 
+
+})
+
+
+
+client.on("guildCreate", guild => {
+    console.log("Joined a new guild: " + guild.name);
 
 })
 

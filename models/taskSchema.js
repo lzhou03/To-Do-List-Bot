@@ -7,3 +7,4 @@ const taskSchema = new mongoose.Schema({
   id: Number,
 });
 const todo = mongoose.model('todo', taskSchema);
+module.exports = todo;
