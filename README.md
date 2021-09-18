@@ -4,10 +4,10 @@ A Discord bot that allows you to manage a to-do list.
 
 ## Features
 
-Add command
+Add command (~add)
 
-Remove command
+Remove command (~remove)
 
-View list command
+View list command (~view)
 
-Cross out command
+Cross out command (~check)
