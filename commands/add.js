@@ -44,6 +44,16 @@ module.exports = {
             index++;
           }
 
+          //check for empty task name
+          if(taskName === ""){
+            const embed = new MessageEmbed()
+            .setColor("RED")
+            .setTitle("Please enter the name of your task."); //add task name: read from DB
+            //.setDescription(args[0]);
+
+            message.channel.send(embed);
+          }
+
           var thisUser = await userSchema.findOne({ uid : userid });
           console.log(thisUser);
 
