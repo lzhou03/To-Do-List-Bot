@@ -85,7 +85,8 @@ module.exports = {
 
           const embed = new MessageEmbed()
           .setColor("GREEN")
-          .setTitle('Added Task: \"' + taskName + "\" to " + date.toString().slice(0,15)); //add task name: read from DB
+          .setTitle('Added Task: \"' + taskName + "\" to " + date.toString().slice(0,15)) //add task name: read from DB
+          .setDescription('added ' + taskName + ' - ' + date.toString().slice(0,15));
           //.setDescription(args[0]);
 
           message.channel.send(embed);

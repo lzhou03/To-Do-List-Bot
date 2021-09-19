@@ -27,6 +27,8 @@ module.exports = {
         const activeUser = await userSchema.findOne({ uid: uid }); // find user
         if (activeUser) {
           const selectedTask = await activeUser.tasks[taskNum]; // find task
+          const date = new Date(selectedTask.date);//get date
+          const name = selectedTask.name; // get name
           if (selectedTask) {
             selectedTask.complete = !selectedTask.complete; // checks or unchecks item from list
             await activeUser.save(); // saves change to database
@@ -35,7 +37,7 @@ module.exports = {
         const embed = new MessageEmbed()
         .setColor("#FFFF00")
         .setTitle("You've completed Task: "+args[0] + "!") //add task name
-        .setDescription("Nice Work!");
+        .setDescription("Nice Work!\ncrossed off ~~" + taskNum.toString() + '. ' + name + ' - ' + date + "~~");
 
         message.channel.send(embed);
       }
