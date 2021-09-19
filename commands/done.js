@@ -38,10 +38,7 @@ module.exports = {
         .setDescription("Nice Work!");
 
         message.channel.send(embed);
-
       }
-
-
-
     }
+  }
 }
