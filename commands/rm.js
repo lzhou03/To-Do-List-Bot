@@ -19,18 +19,15 @@ module.exports = {
         }
         else{
           var taskNum = args[0];
+
+          const activeUser = await userSchema.findOne({ uid: uid }); // find user
+          activeUser.tasks.splice(index, taskNum); // remove item at taskNum
+
           const embed = new MessageEmbed()
           .setColor("YELLOW")
           .setTitle("Removed " + args[0] + " from "); //add task name, task date
 
           message.channel.send(embed);
         }
-        mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true, useUnifiedTopology: true})
-
-        async function deleteListingByName(taskNum) {
-          //client.db("todo").collection(users).deleteOne({tasks: tasks[taskNum]})
-          mongoose.deleteModel(tasks: tasks[taskNum])
-        }
-        deleteListingByName(taskNum)
     }
 }
