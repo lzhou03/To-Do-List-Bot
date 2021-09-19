@@ -1,5 +1,8 @@
 const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
+const User = require('../models/userSchema.js');
+const task = require('../models/taskSchema.js');
+const userSchema = require('../models/userSchema.js');
 
 module.exports = {
     name: 'update',
@@ -32,8 +35,15 @@ module.exports = {
         .setColor("#9B59B6")//purple
         .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
         .setDescription(taskList);
+        console.log(activeUser.lastList[2])
 
-        message.edit(embed);
+        message.channel.messages.fetch(activeUser.lastList[2])
+        .then(msg => {
+            const fetchedMsg = msg.first();
+            fetchedMsg.edit(embed);
+        });
+        // let thisMessage = await message.channel.messages.fetch(activeUser.lastList[2]);
+        // thisMessage.edit(embed);
 
     }
 }

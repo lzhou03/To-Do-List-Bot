@@ -29,6 +29,7 @@ module.exports = {
                 formattedTask = '~~' + formattedTask + '~~';
               } // assemble task line
               taskList += formattedTask + '\n'; // add task line to list // add task line to list
+
             }
           }
 
@@ -37,7 +38,11 @@ module.exports = {
           .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
           .setDescription(taskList);
 
-          message.channel.send(embed);
+          let thisMessage = await message.channel.send(embed);
+          activeUser.lastList[0] = thisMessage.guild.id;
+          activeUser.lastList[1] = thisMessage.channel.id;
+          activeUser.lastList[2] = thisMessage.id;
+          console.log(activeUser.lastList)
 
         }
         else if(args[0]==='all'){

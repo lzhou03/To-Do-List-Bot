@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
   tasks: [taskSchema],
   optIn: Boolean,
   lastDate: Date,
-  lastList: Number
+  lastList: [Number],
+  lastListAll:[Number]
 });
 const user = mongoose.model('User', userSchema);
 module.exports = user;

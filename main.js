@@ -37,10 +37,12 @@ client.on('message', message => {
 		else if(command === 'add'){
 			//message.channel.send("abcd");
 			client.commands.get("add").execute(message, args, command, client, Discord, db);
+			client.commands.get("update").execute(message, args, command, client, Discord, db);
 		}
 		else if(command === 'rm'){
 			//message.channel.send("abcd");
 			client.commands.get("rm").execute(message, args, command, client, Discord, db);
+			client.commands.get("update").execute(message, args, command, client, Discord, db);
 		}
 		else if(command === 'list'){
 			//message.channel.send("abcd");
@@ -49,6 +51,8 @@ client.on('message', message => {
 		else if(command === 'done'){
 			//message.channel.send("abcd");
 			client.commands.get("done").execute(message, args, command, client, Discord, db);
+			client.commands.get("update").execute(message, args, command, client, Discord, db);
+
 		}
 		else if(command === 'update'){
 			//message.channel.send("abcd");
