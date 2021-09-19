@@ -69,7 +69,12 @@ module.exports = {
           .setTitle('__List of All Tasks__') // add date
           .setDescription(taskList);
 
-          message.channel.send(embed);
+          let thisMessage = await message.channel.send(embed);
+          activeUser.lastListAll.set(0, thisMessage.guild.id);
+          activeUser.lastListAll.set(1, thisMessage.channel.id);
+          activeUser.lastListAll.set(2, thisMessage.id);
+          await activeUser.save();
+          console.log(activeUser.lastListAll)
 
         }
         else{
@@ -106,7 +111,12 @@ module.exports = {
             .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
             .setDescription(taskList);
 
-            message.channel.send(embed);
+            let thisMessage = await message.channel.send(embed);
+            activeUser.lastList.set(0, thisMessage.guild.id);
+            activeUser.lastList.set(1, thisMessage.channel.id);
+            activeUser.lastList.set(2, thisMessage.id);
+            await activeUser.save();
+            console.log(activeUser.lastList)
           }
         }
     }

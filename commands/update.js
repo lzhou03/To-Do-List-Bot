@@ -15,6 +15,7 @@ module.exports = {
         if (!activeUser) {
           return;
         }
+        //UPDATE LAST DAYLIST
         console.log(activeUser.lastList)
         let taskList = '';
         let formattedTask = ''; // set up task collectors
@@ -36,18 +37,33 @@ module.exports = {
         .setColor("#9B59B6")//purple
         .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
         .setDescription(taskList);
-        //console.log(activeUser.lastList[1])
 
-        client.channels.cache.get(activeUser.lastList[1]).messages.fetch({ around: activeUser.lastList[2], limit: 1 })
-        .then(async msg => {
-          msg.edit(embed);
-        })
-
-
-        //let thisMessage = await client.channels.cache.get(activeUser.lastList[1].toString()).messages.fetch(activeUser.lastList[2]);
-        //message.channels.send(thisMessage.content)
+        let thisMessage = await client.channels.cache.get(activeUser.lastList[1]).messages.fetch(activeUser.lastList[2]);
         //console.log(thisMessage);
-        //thisMessage.edit(embed);
+        thisMessage.edit(embed);
 
+        // UPDATE LAST ALL LIST
+
+        console.log(activeUser.lastListAll)
+        taskList = '';
+        formattedTask = ''; // set up task collectors
+        for (var i = 0; i < activeUser.tasks.length; i++) {
+          formattedTask = i.toString() + ". "
+          formattedTask += activeUser.tasks[i].name;
+          formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
+          if (activeUser.tasks[i].complete) {
+            formattedTask = '~~' + formattedTask + '~~';
+          } // assemble task line
+          taskList += formattedTask + '\n'; // add task line to list
+        }
+
+        const embed2 = new MessageEmbed()
+        .setColor("#9B59B6")
+        .setTitle('__List of All Tasks__') // add date
+        .setDescription(taskList);
+
+        let thisMessage2 = await client.channels.cache.get(activeUser.lastListAll[1]).messages.fetch(activeUser.lastListAll[2]);
+        //console.log(thisMessage2);
+        thisMessage2.edit(embed2);
     }
 }

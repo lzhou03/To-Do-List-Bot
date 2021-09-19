@@ -39,6 +39,7 @@ module.exports = {
         .setDescription("Nice Work!\ncrossed off ~~" + taskNum.toString() + '. ' + name + ' - ' + date + "~~");
 
         message.channel.send(embed);
+        client.commands.get("update").execute(message, args, command, client, Discord, db);
       }
     }
   }

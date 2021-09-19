@@ -62,6 +62,7 @@ module.exports = {
           .setDescription('added ' + taskName + ' - ' + date.toString().slice(0,15));
 
           message.channel.send(embed);
+          client.commands.get("update").execute(message, args, command, client, Discord, db);
     }
   }
 }
