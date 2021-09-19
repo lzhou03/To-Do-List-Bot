@@ -19,8 +19,8 @@ td! rm [task id] will remove the given task from your to-do list.
 
 ### List (date)
 
-td! list (date) will list all items on your to-do list, along with their ids.
-optionally, you can specify a particular date.
+td! list (date) will list all items on your to-do list for that date, along with their ids.
+If no date is specified, the list for your last-added date will be outputted.
 
 
 ### Potential Future Features
