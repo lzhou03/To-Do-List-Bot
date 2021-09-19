@@ -21,7 +21,8 @@ module.exports = {
           var taskNum = args[0];
 
           const activeUser = await userSchema.findOne({ uid: uid }); // find user
-          activeUser.tasks.splice(index, taskNum); // remove item at taskNum
+          const selectedTask = activeUser.tasks[i]._id; // find task to remove
+          activeUser.tasks.id(selectedTask).remove(); // remove item at taskNum
 
           const embed = new MessageEmbed()
           .setColor("YELLOW")
