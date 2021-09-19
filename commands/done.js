@@ -25,7 +25,7 @@ module.exports = {
         //note: not sure if syntax correct, needs testing
         const activeUser = await userSchema.findOne({ uid: uid }); // find user
         if (activeUser) {
-          const selectedTask = await activeUser.tasks.id(id); // find task
+          const selectedTask = await activeUser.tasks.id(_id); // find task
           if (selectedTask) {
             selectedTask.complete = !selectedTask.complete; // checks or unchecks item from list
             await activeUser.save(); // saves change to database

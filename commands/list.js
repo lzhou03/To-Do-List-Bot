@@ -31,7 +31,7 @@ module.exports = {
           let formattedTask = ''; // set up task collectors
           for (var i = 0; i < activeUser.tasks.length; i++) {
             formattedTask = activeUser.tasks[i].name;
-            formattedTask += ' (id:' + activeUser.tasks[i].id.toString() + ', date:' + activeUser.tasks[i].date.toString() + ')';
+            formattedTask += ' (id:' + activeUser.tasks[i]._id.toString() + ', date:' + activeUser.tasks[i].date.toString() + ')';
             if (activeUser.tasks[i].complete) {
               formattedTask = '~~' + formattedTask + '~~';
             } // assemble task line
@@ -68,7 +68,7 @@ module.exports = {
             for (var i = 0; i < activeUser.tasks.length; i++) {
               if (activeUser[i].date == date) {
                 formattedTask = activeUser.tasks[i].name;
-                formattedTask += ' (id:' + activeUser.tasks[i].id.toString() + ')';
+                formattedTask += ' (id:' + activeUser.tasks[i]._id.toString() + ')';
                 if (activeUser.tasks[i].complete) {
                   formattedTask = '~~' + formattedTask + '~~';
                 } // assemble task line
