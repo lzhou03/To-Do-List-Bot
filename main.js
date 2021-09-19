@@ -20,7 +20,7 @@ for(const file of commandFiles){
 
 
 client.once('ready', () => {
-	console.log('Ready! ToDo ur mum');
+	console.log('Ready!');
   client.channels.cache.get("888802387983212554").send("ready");
 	client.user.setActivity(`over you 24/7 O_O`, {type: 'WATCHING'});
 });
@@ -70,16 +70,6 @@ client.on('message', message => {
 
 
 })
-
-
-
-client.on("guildCreate", guild => {
-    console.log("Joined a new guild: " + guild.name);
-
-})
-
-
-
 
 mongoose.connect(process.env.MONGODB_SRV, {
   useNewUrlParser: true,
