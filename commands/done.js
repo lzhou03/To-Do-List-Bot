@@ -22,6 +22,7 @@ module.exports = {
       }
       else{
         var taskNum = args[0];
+        var doneMessage = "";
         //update completion status in db
         const activeUser = await userSchema.findOne({ uid: uid }); // find user
         if (activeUser) {
@@ -33,10 +34,17 @@ module.exports = {
             await activeUser.save(); // saves change to database
           }
 
+          if(selectedTask.complete){
+            doneMessage = "Nice Work!\ncrossed off ~~" + taskNum.toString() + '. ' + name + ' - ' + date.toString().slice(0, 15) + "~~"
+          }
+          else{
+            doneMessage = "Uncrossed Task " + taskNum.toString() + '. ' + name + ' - ' + date.toString().slice(0, 15) + ""
+          }
+
         const embed = new MessageEmbed()
         .setColor("#FFFF00")
         .setTitle("You've completed Task: "+args[0] + "!") //add task name
-        .setDescription("Nice Work!\ncrossed off ~~" + taskNum.toString() + '. ' + name + ' - ' + date + "~~");
+        .setDescription(doneMessage);
 
         message.channel.send(embed);
         client.commands.get("update").execute(message, args, command, client, Discord, db);
