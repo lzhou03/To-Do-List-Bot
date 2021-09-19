@@ -27,7 +27,8 @@ module.exports = {
           }
           else{
 
-
+          var thisUser = await userSchema.findOne({ uid : userid });
+          console.log(thisUser);
 
 //separate parameters
           var index = 1;
@@ -35,7 +36,10 @@ module.exports = {
 
           if(isNaN(date)){
             index = 0;
-            //date = lastDate;
+            date = thisUser.lastDate;
+          }
+          else {
+            thisUser.lastDate = date;
           }
 
           var taskName = "";
@@ -54,8 +58,7 @@ module.exports = {
             message.channel.send(embed);
           }
 
-          var thisUser = await userSchema.findOne({ uid : userid });
-          console.log(thisUser);
+
 
           const newTask = new task({name: taskName, date: date, complete: false, id: thisUser.tasks.length})
           thisUser.tasks.push(newTask);
@@ -69,15 +72,15 @@ module.exports = {
 
 
           // lists all databases, client parameter may need adjustment
-          async function listDatabases(client) {
-              const databasesList = await client.db.admin().listDatabases()
-
-              console.log("Databases:");
-              databasesList.databases.forEach( db => {
-              console.log(`- ${db.name}`)
-             })
-          }
-          listDatabases(client)
+          // async function listDatabases(client) {
+          //     const databasesList = await client.db.admin().listDatabases()
+          //
+          //     console.log("Databases:");
+          //     databasesList.databases.forEach( db => {
+          //     console.log(`- ${db.name}`)
+          //    })
+          // }
+          // listDatabases(client)
           // lists all databases, client parameter may need adjustment
 
           const embed = new MessageEmbed()

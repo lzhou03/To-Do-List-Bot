@@ -22,7 +22,7 @@ module.exports = {
 
           const activeUser = await userSchema.findOne({ uid: uid }); // find user
           const selectedTask = activeUser.tasks[taskNum]._id; // find task to remove
-          const date = selectedTask.date;//get date
+          const date = new Date(selectedTask.date);//get date
           activeUser.tasks.id(selectedTask).remove(); // remove item at taskNum
           await activeUser.save(); // saves change to database
 
