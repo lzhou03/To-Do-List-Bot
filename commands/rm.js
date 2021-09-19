@@ -22,12 +22,13 @@ module.exports = {
 
           const activeUser = await userSchema.findOne({ uid: uid }); // find user
           const selectedTask = activeUser.tasks[taskNum]._id; // find task to remove
+          const date = selectedTask.date;//get date
           activeUser.tasks.id(selectedTask).remove(); // remove item at taskNum
           await activeUser.save(); // saves change to database
 
           const embed = new MessageEmbed()
           .setColor("YELLOW")
-          .setTitle("Removed " + args[0] + " from "); //add task name, task date
+          .setTitle("Removed " + args[0] + " from "+date.toString().slice(0,15)); //add task name, task date
 
           message.channel.send(embed);
         }
