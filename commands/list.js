@@ -68,12 +68,12 @@ module.exports = {
             let formattedTask = ''; // set up task collectors
             for (var i = 0; i < activeUser.tasks.length; i++) {
               if (activeUser[i].date == date) {
-                formattedTask = activeUser.tasks[i].name;
-                formattedTask += ' (id:' + i.toString() + ')';
+                formattedTask = i.toString() + ". "
+                formattedTask += activeUser.tasks[i].name;
                 if (activeUser.tasks[i].complete) {
                   formattedTask = '~~' + formattedTask + '~~';
                 } // assemble task line
-                taskList += formattedTask + '\n'; // add task line to list
+                taskList += formattedTask + '\n'; // add task line to list // add task line to list
               }
             }
 
