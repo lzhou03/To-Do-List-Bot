@@ -67,7 +67,7 @@ module.exports = {
             let taskList = '';
             let formattedTask = ''; // set up task collectors
             for (var i = 0; i < activeUser.tasks.length; i++) {
-              if (activeUser[i].date == date) {
+              if (activeUser.tasks[i].date == date) {
                 formattedTask = i.toString() + ". "
                 formattedTask += activeUser.tasks[i].name;
                 if (activeUser.tasks[i].complete) {
