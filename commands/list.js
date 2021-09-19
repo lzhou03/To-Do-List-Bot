@@ -30,8 +30,9 @@ module.exports = {
           let taskList = '';
           let formattedTask = ''; // set up task collectors
           for (var i = 0; i < activeUser.tasks.length; i++) {
-            formattedTask = activeUser.tasks[i].name;
-            formattedTask += ' (id:' + i.toString() + ', date:' + activeUser.tasks[i].date.toString().slice(0,15) + ')';
+            formattedTask = i.toString() + ". "
+            formattedTask += activeUser.tasks[i].name;
+            formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15) + ')';
             if (activeUser.tasks[i].complete) {
               formattedTask = '~~' + formattedTask + '~~';
             } // assemble task line
