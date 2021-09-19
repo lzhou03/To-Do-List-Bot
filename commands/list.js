@@ -22,7 +22,6 @@ module.exports = {
           var date = activeUser.lastDate;
           const reformattedDate = date.toString().slice(0,15);
           for (var i = 0; i < activeUser.tasks.length; i++) {
-            console.log(activeUser.tasks[i].date);
             if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
               formattedTask = i.toString() + ". "
               formattedTask += activeUser.tasks[i].name;
@@ -39,7 +38,6 @@ module.exports = {
           .setDescription(taskList);
 
           message.channel.send(embed);
-
 
         }
         else if(args[0]==='all'){
@@ -66,8 +64,6 @@ module.exports = {
 
           message.channel.send(embed);
 
-
-
         }
         else{
           var date = new Date(args[0]);
@@ -88,7 +84,6 @@ module.exports = {
             let formattedTask = ''; // set up task collectors
             const reformattedDate = date.toString().slice(0,15);
             for (var i = 0; i < activeUser.tasks.length; i++) {
-              console.log(activeUser.tasks[i].date);
               if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
                 formattedTask = i.toString() + ". "
                 formattedTask += activeUser.tasks[i].name;
@@ -106,8 +101,6 @@ module.exports = {
 
             message.channel.send(embed);
           }
-
         }
-
     }
 }

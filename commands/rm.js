@@ -27,7 +27,6 @@ module.exports = {
           const name = selectedTask.name; // get name
           activeUser.tasks.id(selectedTask).remove(); // remove item at taskNum
           await activeUser.save(); // saves change to database
-          console.log(date);
 
           const embed = new MessageEmbed()
           .setColor("YELLOW")

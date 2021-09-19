@@ -23,7 +23,6 @@ module.exports = {
       else{
         var taskNum = args[0];
         //update completion status in db
-        //note: not sure if syntax correct, needs testing
         const activeUser = await userSchema.findOne({ uid: uid }); // find user
         if (activeUser) {
           const selectedTask = await activeUser.tasks[taskNum]; // find task
