@@ -36,15 +36,18 @@ module.exports = {
         .setColor("#9B59B6")//purple
         .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
         .setDescription(taskList);
-        console.log(activeUser.lastList[1])
+        //console.log(activeUser.lastList[1])
 
-        // message.channel.messages.fetch(activeUser.lastList[2]})
-        // .then(msg => {
-        //     const fetchedMsg = msg.first();
-        //     fetchedMsg.edit(embed);
-        // });
-        let thisMessage = await client.channels.cache.get(activeUser.lastList[1].toString()).messages.fetch(activeUser.lastList[2]);
-        thisMessage.edit(embed);
+        client.channels.cache.get(activeUser.lastList[1]).messages.fetch({ around: activeUser.lastList[2], limit: 1 })
+        .then(async msg => {
+          msg.edit(embed);
+        })
+
+
+        //let thisMessage = await client.channels.cache.get(activeUser.lastList[1].toString()).messages.fetch(activeUser.lastList[2]);
+        //message.channels.send(thisMessage.content)
+        //console.log(thisMessage);
+        //thisMessage.edit(embed);
 
     }
 }
