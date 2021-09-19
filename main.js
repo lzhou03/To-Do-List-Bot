@@ -20,7 +20,7 @@ for(const file of commandFiles){
 
 
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log('Ready! ToDo ur mum');
   client.channels.cache.get("888802387983212554").send("ready");
 	client.user.setActivity(`over you 24/7 O_O`, {type: 'WATCHING'});
 });
