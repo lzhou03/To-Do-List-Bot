@@ -5,9 +5,6 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const { prefix } = require('./config.json');
 const userSchema = require('./models/userSchema.js');
-//const guildSchema = require('./models/guildSchema.js')
-
-
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -17,18 +14,13 @@ for(const file of commandFiles){
   client.commands.set(command.name, command);
 }
 
-
-
 client.once('ready', () => {
 	console.log('Ready!');
   client.channels.cache.get("888802387983212554").send("ready");
 	client.user.setActivity(`over you 24/7 O_O`, {type: 'WATCHING'});
 });
 
-
-
 //what the bot does whenever a message is sent
-
 client.on('message', message => {
 	//if the author is the bot, ignore the message
 	if(message.author.id === client.user.id) return;
@@ -62,13 +54,7 @@ client.on('message', message => {
 			//message.channel.send("abcd");
 			client.commands.get("update").execute(message, args, command, client, Discord, db);
 		}
-
-
-
-
 	}
-
-
 })
 
 mongoose.connect(process.env.MONGODB_SRV, {
