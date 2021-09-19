@@ -32,7 +32,7 @@ module.exports = {
           for (var i = 0; i < activeUser.tasks.length; i++) {
             formattedTask = i.toString() + ". "
             formattedTask += activeUser.tasks[i].name;
-            formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15) + ')';
+            formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15));
             if (activeUser.tasks[i].complete) {
               formattedTask = '~~' + formattedTask + '~~';
             } // assemble task line
