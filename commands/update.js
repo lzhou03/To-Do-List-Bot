@@ -8,25 +8,32 @@ module.exports = {
     usage: `update`,
     async execute(message, args, command, client, Discord, db){
         //check arguments
-        var uid = message.author.id;
-        if (args[0]%1!== 0){
-          const embed = new MessageEmbed()
-          .setColor("RED")
-          .setTitle("Please specify the task ID number.");
-
-          message.channel.send(embed);
+        var userid = message.author.id;
+        const activeUser = await userSchema.findOne({ uid: userid }); // find user
+        if (!activeUser) {
+          return;
         }
-        else{
-          var taskNum = args[0];
-          const embed = new MessageEmbed()
-          .setColor("YELLOW")
-          .setTitle("Removed " + args[0] + " from "); //add task name, task date
-
-          message.channel.send(embed);
+        let taskList = '';
+        let formattedTask = ''; // set up task collectors
+        var date = activeUser.lastDate;
+        const reformattedDate = date.toString().slice(0,15);
+        for (var i = 0; i < activeUser.tasks.length; i++) {
+          console.log(activeUser.tasks[i].date);
+          if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
+            formattedTask = i.toString() + ". "
+            formattedTask += activeUser.tasks[i].name;
+            if (activeUser.tasks[i].complete) {
+              formattedTask = '~~' + formattedTask + '~~';
+            } // assemble task line
+            taskList += formattedTask + '\n'; // add task line to list // add task line to list
+          }
         }
+        const embed = new MessageEmbed()
+        .setColor("#9B59B6")//purple
+        .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
+        .setDescription(taskList);
 
-        //add comand to write to DB here
-
+        message.edit(embed);
 
     }
 }
