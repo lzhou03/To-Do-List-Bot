@@ -1,12 +1,11 @@
 const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
-const User = require('../models/userSchema.js');
-const task = require('../models/taskSchema.js');
 const userSchema = require('../models/userSchema.js');
+
 
 module.exports = {
     name: 'update',
-    category: 'edit',
+    category: 'edit message',
     description: 'updates printed to-do list',
     usage: `update`,
     async execute(message, args, command, client, Discord, db){
@@ -16,6 +15,7 @@ module.exports = {
         if (!activeUser) {
           return;
         }
+        console.log(activeUser.lastList)
         let taskList = '';
         let formattedTask = ''; // set up task collectors
         var date = activeUser.lastDate;
@@ -31,19 +31,20 @@ module.exports = {
             taskList += formattedTask + '\n'; // add task line to list // add task line to list
           }
         }
+
         const embed = new MessageEmbed()
         .setColor("#9B59B6")//purple
         .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
         .setDescription(taskList);
-        console.log(activeUser.lastList[2])
+        console.log(activeUser.lastList[1])
 
-        message.channel.messages.fetch(activeUser.lastList[2])
-        .then(msg => {
-            const fetchedMsg = msg.first();
-            fetchedMsg.edit(embed);
-        });
-        // let thisMessage = await message.channel.messages.fetch(activeUser.lastList[2]);
-        // thisMessage.edit(embed);
+        // message.channel.messages.fetch(activeUser.lastList[2]})
+        // .then(msg => {
+        //     const fetchedMsg = msg.first();
+        //     fetchedMsg.edit(embed);
+        // });
+        let thisMessage = await client.channels.cache.get(activeUser.lastList[1].toString()).messages.fetch(activeUser.lastList[2]);
+        thisMessage.edit(embed);
 
     }
 }

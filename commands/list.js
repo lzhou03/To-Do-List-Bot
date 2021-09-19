@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const userSchema = require('../models/userSchema.js');
 
+
 module.exports = {
     name: 'list',
     category: 'read',
@@ -39,9 +40,10 @@ module.exports = {
           .setDescription(taskList);
 
           let thisMessage = await message.channel.send(embed);
-          activeUser.lastList[0] = thisMessage.guild.id;
-          activeUser.lastList[1] = thisMessage.channel.id;
-          activeUser.lastList[2] = thisMessage.id;
+          activeUser.lastList.set(0, thisMessage.guild.id);
+          activeUser.lastList.set(1, thisMessage.channel.id);
+          activeUser.lastList.set(2, thisMessage.id);
+          await activeUser.save();
           console.log(activeUser.lastList)
 
         }
