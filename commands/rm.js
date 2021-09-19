@@ -21,8 +21,9 @@ module.exports = {
           var taskNum = args[0];
 
           const activeUser = await userSchema.findOne({ uid: uid }); // find user
-          const selectedTask = activeUser.tasks[i]._id; // find task to remove
+          const selectedTask = activeUser.tasks[taskNum]._id; // find task to remove
           activeUser.tasks.id(selectedTask).remove(); // remove item at taskNum
+          await activeUser.save(); // saves change to database
 
           const embed = new MessageEmbed()
           .setColor("YELLOW")
