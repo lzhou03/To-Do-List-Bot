@@ -35,7 +35,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .setColor("#9B59B6")//purple
-        .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
+        .setTitle('__'+message.author.username+'\'s To-do '+date.toString().slice(0,15)+"__") // add date
         .setDescription(taskList);
 
         let thisMessage = await client.channels.cache.get(activeUser.lastList[1]).messages.fetch(activeUser.lastList[2]);
@@ -56,10 +56,9 @@ module.exports = {
           } // assemble task line
           taskList += formattedTask + '\n'; // add task line to list
         }
-
         const embed2 = new MessageEmbed()
         .setColor("#9B59B6")
-        .setTitle('__List of All Tasks__') // add date
+        .setTitle('__'+message.author.username+'\'s List of All Tasks__') // add date
         .setDescription(taskList);
 
         let thisMessage2 = await client.channels.cache.get(activeUser.lastListAll[1]).messages.fetch(activeUser.lastListAll[2]);

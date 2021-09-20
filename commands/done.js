@@ -33,9 +33,9 @@ module.exports = {
             selectedTask.complete = !selectedTask.complete; // checks or unchecks item from list
             await activeUser.save(); // saves change to database
           }
-
+          var username = await client.users.cache.get(userid.toString()).username;
           if(selectedTask.complete){
-            doneMessage = "Nice Work!\ncrossed off ~~" + taskNum.toString() + '. ' + name + ' - ' + date.toString().slice(0, 15) + "~~"
+            doneMessage = "Nice Work, "+username+"!\ncrossed off ~~" + taskNum.toString() + '. ' + name + ' - ' + date.toString().slice(0, 15) + "~~"
           }
           else{
             doneMessage = "Uncrossed Task " + taskNum.toString() + '. ' + name + ' - ' + date.toString().slice(0, 15) + ""

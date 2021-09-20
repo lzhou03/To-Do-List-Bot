@@ -36,7 +36,7 @@ module.exports = {
 
           const embed = new MessageEmbed()
           .setColor("#9B59B6")//purple
-          .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
+          .setTitle('__'+message.author.username+'\'s To-do '+date.toString().slice(0,15)+"__") // add date
           .setDescription(taskList);
 
           let thisMessage = await message.channel.send(embed);
@@ -67,7 +67,7 @@ module.exports = {
 
           const embed = new MessageEmbed()
           .setColor("#9B59B6")
-          .setTitle('__List of All Tasks__') // add date
+          .setTitle("__"+message.author.username+'\'s List of All Tasks__') // add date
           .setDescription(taskList);
 
           let thisMessage = await message.channel.send(embed);
@@ -107,10 +107,9 @@ module.exports = {
                 taskList += formattedTask + '\n'; // add task line to list // add task line to list
               }
             }
-
             const embed = new MessageEmbed()
             .setColor("#9B59B6")//purple
-            .setTitle('__To-do '+date.toString().slice(0,15)+"__") // add date
+            .setTitle("__"+message.author.username+'\'s To-do '+date.toString().slice(0,15)+"__") // add date
             .setDescription(taskList);
 
             let thisMessage = await message.channel.send(embed);
