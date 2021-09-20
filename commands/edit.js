@@ -38,7 +38,7 @@ module.exports = {
           const embed = new MessageEmbed()
           .setColor("YELLOW")
           .setTitle("Edited Task " + taskNum) //add task num
-          .setDescription('changed ' + taskNum + '. ' + name1 + ' to ' + taskName);
+          .setDescription('changed ' + taskNum + '. \"' + name1 + '\" to \"' + taskName+'\"');
 
           message.channel.send(embed);
           client.commands.get("update").execute(message, args, command, client, Discord, db);
