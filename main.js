@@ -52,6 +52,11 @@ client.on('message', message => {
 			client.commands.get("done").execute(message, args, command, client, Discord, db);
 
 		}
+		else if(command === 'edit'){
+			//message.channel.send("abcd");
+			client.commands.get("edit").execute(message, args, command, client, Discord, db);
+
+		}
 	}
 })
 
