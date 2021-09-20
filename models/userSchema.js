@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   optIn: Boolean,
   lastDate: Date,
   lastList: [String],
-  lastListDate: {type: Date, default: '9/28/2003'},
+  lastListDate: {type: Date, default: "09/28/2003"},
   lastListAll:[String]
 });
 const user = mongoose.model('User', userSchema);
