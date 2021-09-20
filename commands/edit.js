@@ -37,8 +37,8 @@ module.exports = {
 
           const embed = new MessageEmbed()
           .setColor("YELLOW")
-          .setTitle("Removed " + args[0] + " from "+date.toString().slice(0,15)) //add task name, task date
-          .setDescription('changed ' + taskNum.toString() + '. ' + name1 + ' to ' + taskName);
+          .setTitle("Edited Task " + taskNum) //add task num
+          .setDescription('changed ' + taskNum + '. ' + name1 + ' to ' + taskName);
 
           message.channel.send(embed);
           client.commands.get("update").execute(message, args, command, client, Discord, db);
