@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   optIn: Boolean,
   lastDate: Date,
   lastList: [String],
+  lastListDate: Date,
   lastListAll:[String]
 });
 const user = mongoose.model('User', userSchema);

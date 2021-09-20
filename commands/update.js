@@ -19,7 +19,7 @@ module.exports = {
         console.log(activeUser.lastList)
         let taskList = '';
         let formattedTask = ''; // set up task collectors
-        var date = activeUser.lastDate;
+        var date = activeUser.lastListDate;
         const reformattedDate = date.toString().slice(0,15);
         for (var i = 0; i < activeUser.tasks.length; i++) {
           console.log(activeUser.tasks[i].date);
