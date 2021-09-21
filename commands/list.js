@@ -74,7 +74,7 @@ module.exports = {
           activeUser.lastListAll.set(0, thisMessage.guild.id);
           activeUser.lastListAll.set(1, thisMessage.channel.id);
           activeUser.lastListAll.set(2, thisMessage.id);
-          activeUser.lastListDate = date;
+          //activeUser.lastListDate = date;
           await activeUser.save();
           console.log(activeUser.lastListAll)
 
