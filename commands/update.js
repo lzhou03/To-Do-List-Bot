@@ -22,7 +22,7 @@ module.exports = {
         var date = activeUser.lastListDate;
         const reformattedDate = date.toString().slice(0,15);
         for (var i = 0; i < activeUser.tasks.length; i++) {
-          console.log(activeUser.tasks[i].date);
+          //console.log(activeUser.tasks[i].date);
           if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
             formattedTask = i.toString() + ". "
             formattedTask += activeUser.tasks[i].name;

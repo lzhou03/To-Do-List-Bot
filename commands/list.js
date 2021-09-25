@@ -48,6 +48,17 @@ module.exports = {
           console.log(activeUser.lastList)
 
         }
+
+
+
+
+
+
+
+
+
+
+
         else if(args[0]==='all'){
           const activeUser = await userSchema.findOne({ uid: userid }); // find user
           if (!activeUser) {
@@ -79,6 +90,16 @@ module.exports = {
           console.log(activeUser.lastListAll)
 
         }
+
+
+
+
+
+
+
+
+
+
         else{
           var date = new Date(args[0]);
           if (isNaN(date)){
@@ -105,6 +126,15 @@ module.exports = {
                   formattedTask = '~~' + formattedTask + '~~';
                 } // assemble task line
                 taskList += formattedTask + '\n'; // add task line to list // add task line to list
+              }
+              //check if task is outdated
+              else if(activeUser.tasks[i].date < date) {
+                if (activeUser.tasks[i].complete){
+                  activeUser.tasks[i].remove();
+                }
+                else{
+                  activeUser.tasks[i].date = date;
+                }
               }
             }
             const embed = new MessageEmbed()
