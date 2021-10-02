@@ -66,26 +66,28 @@ module.exports = {
           }
           let taskList = '';
           let formattedTask = ''; // set up task collectors
-
+          var date = new Date();
+          date.setUTCHours(0, 0, 0, 0);
           for (var i = 0; i < activeUser.tasks.length; i++) {
             if(activeUser.tasks[i].date < date) {
               if (activeUser.tasks[i].complete){
                 activeUser.tasks[i].remove();
+                continue;
               }
-              else{
-                activeUser.tasks[i].date = date;
-              }
+              // else{
+              //   activeUser.tasks[i].date = date;
+              // }
             }
-            else {
-              formattedTask = i.toString() + ". " //number
-              formattedTask += activeUser.tasks[i].name;
-              formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
-              if (activeUser.tasks[i].complete) {
-                formattedTask = '~~' + formattedTask + '~~';
-              } // assemble task line
-              taskList += formattedTask + '\n'; // add task line to list
 
-            }
+            formattedTask = i.toString() + ". " //number
+            formattedTask += activeUser.tasks[i].name;
+            formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
+            if (activeUser.tasks[i].complete) {
+              formattedTask = '~~' + formattedTask + '~~';
+            } // assemble task line
+            taskList += formattedTask + '\n'; // add task line to list
+
+
 
           }
 
@@ -130,15 +132,15 @@ module.exports = {
             }
             let taskList = '';
             let formattedTask = ''; // set up task collectors
-            var date = new Date(args[0]);
             const reformattedDate = date.toString().slice(0,15);
             for (var i = 0; i < activeUser.tasks.length; i++) {
               //check if task is outdated
               if(activeUser.tasks[i].date < date) {
                 if (activeUser.tasks[i].complete){
                   activeUser.tasks[i].remove();
+                  continue;
                 }
-                else{
+                else if (activeUser.tasks[i].date > date) {
                   activeUser.tasks[i].date = date;
                 }
               }
@@ -149,7 +151,7 @@ module.exports = {
                 if (activeUser.tasks[i].complete) {
                   formattedTask = '~~' + formattedTask + '~~';
                 } // assemble task line
-                taskList += formattedTask + '\n'; // add task line to list // add task line to list
+                taskList += formattedTask + '\n'; // add task line to list
               }
 
             }
