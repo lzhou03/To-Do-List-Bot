@@ -38,7 +38,7 @@ module.exports = {
             doneMessage = "Nice Work, "+username+"!\ncrossed off ~~" + taskNum.toString() + '. ' + name + "~~"
           }
           else{
-            doneMessage = "Uncrossed Task " + taskNum.toString() + '. ' + name + ' - ' + date.toString().slice(0, 15) + ""
+            doneMessage = "Uncrossed Task " + taskNum.toString() + '. ' + name;
           }
 
         const embed = new MessageEmbed()
