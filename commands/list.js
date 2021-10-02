@@ -12,7 +12,7 @@ module.exports = {
         //check args
         var userid = message.author.id;
 
-        if(!args[0]){
+        if(!args[0]){ //DEFAULT LIST
           //list lastDate list
           const activeUser = await userSchema.findOne({ uid: userid }); // find user
           if (!activeUser) {
@@ -59,13 +59,14 @@ module.exports = {
 
 
 
-        else if(args[0]==='all'){
+        else if(args[0]==='all'){ // LIST ALL
           const activeUser = await userSchema.findOne({ uid: userid }); // find user
           if (!activeUser) {
             return;
           }
           let taskList = '';
           let formattedTask = ''; // set up task collectors
+
           for (var i = 0; i < activeUser.tasks.length; i++) {
             if(activeUser.tasks[i].date < date) {
               if (activeUser.tasks[i].complete){
@@ -112,7 +113,7 @@ module.exports = {
 
 
 
-        else{
+        else{ // LIST DATE
           var date = new Date(args[0]);
           if (isNaN(date)){
             const embed = new MessageEmbed()
@@ -129,8 +130,19 @@ module.exports = {
             }
             let taskList = '';
             let formattedTask = ''; // set up task collectors
+            var date = new Date(args[0]);
             const reformattedDate = date.toString().slice(0,15);
             for (var i = 0; i < activeUser.tasks.length; i++) {
+              //check if task is outdated
+              if(activeUser.tasks[i].date < date) {
+                if (activeUser.tasks[i].complete){
+                  activeUser.tasks[i].remove();
+                }
+                else{
+                  activeUser.tasks[i].date = date;
+                }
+              }
+              //GENERATE STRING
               if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
                 formattedTask = i.toString() + ". "
                 formattedTask += activeUser.tasks[i].name;
@@ -139,15 +151,7 @@ module.exports = {
                 } // assemble task line
                 taskList += formattedTask + '\n'; // add task line to list // add task line to list
               }
-              //check if task is outdated
-              else if(activeUser.tasks[i].date < date) {
-                if (activeUser.tasks[i].complete){
-                  activeUser.tasks[i].remove();
-                }
-                else{
-                  activeUser.tasks[i].date = date;
-                }
-              }
+
             }
             const embed = new MessageEmbed()
             .setColor("#9B59B6")//purple
