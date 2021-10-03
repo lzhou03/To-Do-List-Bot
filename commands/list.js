@@ -20,23 +20,38 @@ module.exports = {
           }
           let taskList = '';
           let formattedTask = ''; // set up task collectors
+
+          var today = new Date();
           var date = activeUser.lastListDate;
+          if (date < today) {
+            date = today;
+          }
           const reformattedDate = date.toString().slice(0,15);
           for (var i = 0; i < activeUser.tasks.length; i++) {
+            //check if task is outdated
+            if(activeUser.tasks[i].date < date) {
+              if (activeUser.tasks[i].complete){
+                activeUser.tasks[i].remove();
+                continue;
+              }
+              else {
+                activeUser.tasks[i].date = date;
+              }
+            }
+            //GENERATE STRING
             if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
               formattedTask = i.toString() + ". "
               formattedTask += activeUser.tasks[i].name;
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
               } // assemble task line
-              taskList += formattedTask + '\n'; // add task line to list // add task line to list
-
+              taskList += formattedTask + '\n'; // add task line to list
             }
-          }
 
+          }
           const embed = new MessageEmbed()
           .setColor("#9B59B6")//purple
-          .setTitle('__'+message.author.username+'\'s To-do '+date.toString().slice(0,15)+"__") // add date
+          .setTitle("__"+message.author.username+'\'s To-do '+date.toString().slice(0,15)+"__") // add date
           .setDescription(taskList);
 
           let thisMessage = await message.channel.send(embed);
