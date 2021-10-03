@@ -28,10 +28,14 @@ module.exports = {
 //separate parameters
           var index = 1;
           var date = new Date(args[0]);
+          var today = new Date();
 
           if(isNaN(date)){
             index = 0;
             date = thisUser.lastDate;
+            if (date < today) {
+              date = today;
+            }
           }
           else {
             thisUser.lastDate = date;
