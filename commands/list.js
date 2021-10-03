@@ -140,7 +140,7 @@ module.exports = {
                   activeUser.tasks[i].remove();
                   continue;
                 }
-                else if (activeUser.tasks[i].date > date) {
+                else {
                   activeUser.tasks[i].date = date;
                 }
               }
