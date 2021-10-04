@@ -57,6 +57,14 @@ client.on('message', message => {
 			client.commands.get("edit").execute(message, args, command, client, Discord, db);
 
 		}
+		else {
+			const embed = new MessageEmbed()
+			.setColor("RED")
+			.setTitle("Invalid Command!")
+			.setDescription(command);
+
+			message.channel.send(embed);
+		}
 	}
 })
 
