@@ -63,7 +63,7 @@ module.exports = {
           const embed = new MessageEmbed()
           .setColor("GREEN")
           .setTitle('Added Task: \"' + taskName + "\" to " + date.toString().slice(0,15)) //add task name: read from DB
-          .setDescription('added ' + taskName + ' - ' + date.toString().slice(0,15));
+          //.setDescription('added ' + taskName + ' - ' + date.toString().slice(0,15));
 
           message.channel.send(embed);
           client.commands.get("update").execute(message, args, command, client, Discord, db);
