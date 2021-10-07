@@ -8,9 +8,9 @@ const userSchema = new mongoose.Schema({
   tasks: [taskSchema],
   optIn: Boolean,
   lastDate: Date,
-  lastList: [String],
+  lastList: {type: [String], default: ["", "", ""]},
   lastListDate: {type: Date, default: "09/28/2003"},
-  lastListAll:[String]
+  lastListAll: {type: [String], default: ["", "", ""]}
 });
 const user = mongoose.model('User', userSchema);
 module.exports = user;
