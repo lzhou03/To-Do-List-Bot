@@ -5,6 +5,7 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const { prefix } = require('./config.json');
 const userSchema = require('./models/userSchema.js');
+const { MessageEmbed } = require('discord.js');
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -39,7 +40,7 @@ client.on('message', message => {
 			client.commands.get("add").execute(message, args, command, client, Discord, db)
 
 		}
-		else if(command === 'rm'){
+		else if(command === 'rm' || command == 'remove'){
 			//message.channel.send("abcd");
 			client.commands.get("rm").execute(message, args, command, client, Discord, db);
 		}
