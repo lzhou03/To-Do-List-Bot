@@ -72,7 +72,7 @@ client.on('message', message => {
 			message.channel.send(embed);
 		}
 	}
-	else if (message.content.startsWith("tittie")) {
+	else if (message.content.startsWith("tittie!")) {
 		message.reply("Disgusting.");
 		message.react('🤮');
 
