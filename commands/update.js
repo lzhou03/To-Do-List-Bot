@@ -38,9 +38,11 @@ module.exports = {
         .setTitle('__'+message.author.username+'\'s To-do '+date.toString().slice(0,15)+"__") // add date
         .setDescription(taskList);
 
-        let thisMessage = await client.channels.cache.get(activeUser.lastList[1]).messages.fetch(activeUser.lastList[2]);
-        //console.log(thisMessage);
-        thisMessage.edit(embed);
+        if (activeUser.lastList[1] != ""){
+          let thisMessage = await client.channels.cache.get(activeUser.lastList[1]).messages.fetch(activeUser.lastList[2]);
+          //console.log(thisMessage);
+          thisMessage.edit(embed);
+        }
 
         // UPDATE LAST ALL LIST
 
@@ -61,8 +63,12 @@ module.exports = {
         .setTitle('__'+message.author.username+'\'s List of All Tasks__') // add date
         .setDescription(taskList);
 
-        let thisMessage2 = await client.channels.cache.get(activeUser.lastListAll[1]).messages.fetch(activeUser.lastListAll[2]);
-        //console.log(thisMessage2);
-        thisMessage2.edit(embed2);
+
+        if (activeUser.lastListAll[1] != ""){
+          let thisMessage2 = await client.channels.cache.get(activeUser.lastListAll[1]).messages.fetch(activeUser.lastListAll[2]);
+
+          //console.log(thisMessage2);
+          thisMessage2.edit(embed2);
+        }
     }
 }
