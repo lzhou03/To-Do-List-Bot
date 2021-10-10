@@ -21,7 +21,7 @@ module.exports = {
 
             newUser.save();
           }
-          else{
+          
 
           var thisUser = await userSchema.findOne({ uid : userid });
 
@@ -67,6 +67,6 @@ module.exports = {
 
           message.channel.send(embed);
           client.commands.get("update").execute(message, args, command, client, Discord, db);
-    }
+
   }
 }
