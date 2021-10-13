@@ -16,31 +16,33 @@ module.exports = {
           return;
         }
         //UPDATE LAST DAYLIST
-        console.log(activeUser.lastList)
-        let taskList = '';
-        let formattedTask = ''; // set up task collectors
-        var date = activeUser.lastListDate;
-        const reformattedDate = date.toString().slice(0,15);
-        for (var i = 0; i < activeUser.tasks.length; i++) {
-          //console.log(activeUser.tasks[i].date);
-          if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
-            formattedTask = i.toString() + ". "
-            formattedTask += activeUser.tasks[i].name;
-            if (activeUser.tasks[i].complete) {
-              formattedTask = '~~' + formattedTask + '~~';
-            } // assemble task line
-            taskList += formattedTask + '\n'; // add task line to list // add task line to list
+
+        if (activeUser.lastList[1] != "" || activeUser.lastList[1].isNaN()){
+          console.log(activeUser.lastList)
+          let taskList = '';
+          let formattedTask = ''; // set up task collectors
+          var date = activeUser.lastListDate;
+          const reformattedDate = date.toString().slice(0,15);
+          for (var i = 0; i < activeUser.tasks.length; i++) {
+            //console.log(activeUser.tasks[i].date);
+            if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
+              formattedTask = i.toString() + ". "
+              formattedTask += activeUser.tasks[i].name;
+              if (activeUser.tasks[i].complete) {
+                formattedTask = '~~' + formattedTask + '~~';
+              } // assemble task line
+              taskList += formattedTask + '\n'; // add task line to list // add task line to list
+            }
           }
-        }
 
-        const embed = new MessageEmbed()
-        .setColor("#9B59B6")//purple
-        .setTitle('__'+message.author.username+'\'s To-do '+date.toString().slice(0,15)+"__") // add date
-        .setDescription(taskList);
+          const embed = new MessageEmbed()
+          .setColor("#9B59B6")//purple
+          .setTitle('__'+message.author.username+'\'s To-do '+date.toString().slice(0,15)+"__") // add date
+          .setDescription(taskList);
 
-        if (activeUser.lastList[1] != ""){
+
           let thisMessage = await client.channels.cache.get(activeUser.lastList[1]).messages.fetch(activeUser.lastList[2]);
-          //console.log(thisMessage);
+          //console.log(thisMessage);activeUser.lastList[1] != ""
           thisMessage.edit(embed);
         }
 
