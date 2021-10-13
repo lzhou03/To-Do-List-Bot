@@ -19,6 +19,7 @@ client.once('ready', () => {
 	console.log('Ready!');
   //client.channels.cache.get("888802387983212554").send("ready");
 	client.user.setActivity(`over you`, {type: 'WATCHING'});
+	//client.channels.cache.get("870751626686763018").send("My documentation website has bean updated uwu");
 });
 
 //what the bot does whenever a message is sent
@@ -27,7 +28,7 @@ client.on('message', message => {
 	if(message.author.id === client.user.id) return;
 
 	//if the message starts with the prefix, execute this.
-	if(message.content.startsWith(`${prefix}`)){
+	if(message.content.startsWith(`${prefix}`) || message.content.startsWith("Td!")){
 		//separate commands and arguments
 		const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
