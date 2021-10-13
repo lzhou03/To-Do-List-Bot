@@ -62,6 +62,14 @@ module.exports = {
           await activeUser.save();
           console.log(activeUser.lastList)
 
+          const thread = await message.channel.threads.create({
+          	name: message.author.username + "'s command thread'",
+          	autoArchiveDuration: 60,
+          	reason: 'Thread for commands',
+          });
+
+          console.log(`Created thread: ${thread.name}`);
+
         }
 
 
