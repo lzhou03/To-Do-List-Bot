@@ -82,7 +82,7 @@ module.exports = {
           let taskList = '';
           let formattedTask = ''; // set up task collectors
           var date = new Date();
-          date.setUTCHours(0, 0, 0, 0);
+          
           for (var i = 0; i < activeUser.tasks.length; i++) {
             if(activeUser.tasks[i].date < date) {
               if (activeUser.tasks[i].complete){
