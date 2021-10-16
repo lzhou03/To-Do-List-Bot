@@ -87,6 +87,7 @@ module.exports = {
             if(activeUser.tasks[i].date < date) {
               if (activeUser.tasks[i].complete){
                 activeUser.tasks[i].remove();
+                i--;
               }
               else{
                 formattedTask = i.toString() + ". " //number
