@@ -41,9 +41,11 @@ module.exports = {
           .setDescription(taskList);
 
 
-          let thisMessage = await client.channels.cache.get(activeUser.lastList[1]).messages.fetch(activeUser.lastList[2]);
-          //console.log(thisMessage);activeUser.lastList[1] != ""
-          thisMessage.edit(embed);
+          if (activeUser.lastList[1] != ""){
+            let thisMessage = await client.channels.cache.get(activeUser.lastList[1]).messages.fetch(activeUser.lastList[2]);
+            //console.log(thisMessage);activeUser.lastList[1] != ""
+            thisMessage.edit(embed);
+          }
         }
 
         // UPDATE LAST ALL LIST
