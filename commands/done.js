@@ -27,6 +27,9 @@ module.exports = {
         const activeUser = await userSchema.findOne({ uid: uid }); // find user
         if (activeUser) {
           const selectedTask = await activeUser.tasks[taskNum]; // find task
+          if (!selectedTask) {
+            return;
+          }
           const date = new Date(selectedTask.date);//get date
           const name = selectedTask.name; // get name
           if (selectedTask) {
@@ -35,6 +38,9 @@ module.exports = {
           }
           var username = await client.users.cache.get(uid.toString()).username;
           if(selectedTask.complete){
+            if (uid === 198545820696444940) {
+              username = "Furry Dere K";
+            }
             doneMessage = "Nice Work, "+username+"!\ncrossed off ~~" + taskNum.toString() + '. ' + name + "~~"
           }
           else{
