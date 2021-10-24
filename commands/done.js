@@ -38,8 +38,8 @@ module.exports = {
           }
           var username = await client.users.cache.get(uid.toString()).username;
           if(selectedTask.complete){
-            if (uid === 198545820696444940) {
-              username = "Furry Dere K";
+            if (uid === "198545820696444940") {
+              username = "Fooooodriku";
             }
             doneMessage = "Nice Work, "+username+"!\ncrossed off ~~" + taskNum.toString() + '. ' + name + "~~"
           }
