@@ -18,7 +18,7 @@ for(const file of commandFiles){
 client.once('ready', () => {
 	console.log('Ready!');
   //client.channels.cache.get("888802387983212554").send("ready");
-	client.user.setActivity(`over you`, {type: 'WATCHING'});
+	client.user.setActivity(`over u`, {type: 'WATCHING'});
 });
 
 //what the bot does whenever a message is sent
