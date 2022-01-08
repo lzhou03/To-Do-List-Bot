@@ -63,6 +63,11 @@ client.on('message', message => {
     client.commands.get("clear").execute(message, args, command, client, Discord, db);
 
   }
+  else if (command === 'ree') {
+    //message.channel.send("abcd");
+    client.commands.get("ree").execute(message, args, command, client, Discord, db);
+
+  }
   else {
     const embed = new MessageEmbed()
       .setColor("RED")
