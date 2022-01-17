@@ -30,7 +30,7 @@ client.on('message', message => {
   if (message.content.toLowerCase().startsWith(`${prefix}`)){
   //separate commands and arguments
   const args = message.content.slice(prefix.length).trim().split(' ');
-  const command = args[0].shift().toLowerCase();
+  const command = args[0].toLowerCase();
 
   if (command === 'hello' || command === 'Hello') {
     message.channel.send('Hi there!');
