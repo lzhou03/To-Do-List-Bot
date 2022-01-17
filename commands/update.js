@@ -15,7 +15,7 @@ module.exports = {
         if (!activeUser) {
           return;
         }
-        activeUser.tasks = activeUser.tasks.sort((a, b) => b.date - a.date);
+        activeUser.tasks = activeUser.tasks.sort((a, b) => a.date - b.date);
         //UPDATE LAST DAYLIST
 
         if (activeUser.lastList[1] != "" || activeUser.lastList[1].isNaN()){
