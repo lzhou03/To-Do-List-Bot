@@ -5,7 +5,7 @@ const taskSchema = new mongoose.Schema({
   date: Date,
   complete: Boolean,
   id: Number,
-  rem: Boolean
+  rem: type: Boolean
 });
 const todo = mongoose.model('todo', taskSchema);
 module.exports = todo;
