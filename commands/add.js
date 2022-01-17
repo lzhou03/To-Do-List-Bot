@@ -28,7 +28,7 @@ module.exports = {
 //separate parameters
           var date = new Date(args[0]);
           var today = new Date();
-          var argCount = 0;
+          var argCount = 1;
 //Date
 
 
@@ -38,6 +38,7 @@ module.exports = {
 
           if(isNaN(date)){
             date = new Date();
+            argCount = 0;
 
             switch (args[argCount].toLowerCase()) {
               case "next":
