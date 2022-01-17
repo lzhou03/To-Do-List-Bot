@@ -107,7 +107,7 @@ module.exports = {
           }
           console.log(date)
 
-          const newTask = new task({name: taskName, date: date, complete: false, id: thisUser.tasks.length, rem: false})
+          const newTask = new task({name: taskName, date: date, complete: false, id: thisUser.tasks.length})
           thisUser.tasks.push(newTask);
           await thisUser.save();
 

@@ -18,7 +18,7 @@ module.exports = {
         activeUser.tasks = activeUser.tasks.sort((a, b) => a.date - b.date);
         //UPDATE LAST DAYLIST
 
-        if (activeUser.lastList[1] != "" || activeUser.lastList[1].isNaN()){
+        if (activeUser.lastList[1] != "" || activeUser.lastList[1]){
           console.log(activeUser.lastList)
           let taskList = '';
           let formattedTask = ''; // set up task collectors
@@ -31,9 +31,10 @@ module.exports = {
               formattedTask += activeUser.tasks[i].name;
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
-              } else if (activeUser.tasks[i].rem) {
-                formattedTask += " 🔔";
-              }// assemble task line
+              }
+              // } else if (activeUser.tasks[i].rem) {
+              //   formattedTask += " 🔔";
+              // }// assemble task line
               taskList += formattedTask + '\n'; // add task line to list // add task line to list
             }
           }
