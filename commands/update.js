@@ -16,6 +16,9 @@ module.exports = {
           return;
         }
         activeUser.tasks = activeUser.tasks.sort((a, b) => a.date - b.date);
+        for (var i; i< activeUser.tasks.length;i++) {
+          activeUser.tasks[i].id = i;
+        }
         //UPDATE LAST DAYLIST
 
         if (activeUser.lastList[1] != "" || activeUser.lastList[1]){
@@ -32,9 +35,9 @@ module.exports = {
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
               }
-              // } else if (activeUser.tasks[i].rem) {
-              //   formattedTask += " 🔔";
-              // }// assemble task line
+              } else if (activeUser.tasks[i].rem) {
+                formattedTask += " 🔔";
+              }// assemble task line
               taskList += formattedTask + '\n'; // add task line to list // add task line to list
             }
           }
