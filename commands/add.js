@@ -46,7 +46,6 @@ module.exports = {
                   date.setDate(date.getDate() + 7);
                   argCount++;
                 }
-                date.setDate(date.getDate() + 7);
               case "monday":
                 date.setDate(date.getDate() + ((1 + 7 - date.getDay()) % 7));
                 argCount++;
