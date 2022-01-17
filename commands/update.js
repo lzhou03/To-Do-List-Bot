@@ -34,7 +34,6 @@ module.exports = {
               formattedTask += activeUser.tasks[i].name;
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
-              }
               } else if (activeUser.tasks[i].rem) {
                 formattedTask += " 🔔";
               }// assemble task line
