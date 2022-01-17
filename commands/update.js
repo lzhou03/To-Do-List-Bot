@@ -31,7 +31,7 @@ module.exports = {
               formattedTask += activeUser.tasks[i].name;
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
-              } else if (activeUser.tasks[i].rem) {
+              } else if (activeUser.tasks[i].rem === true) {
                 formattedTask += " 🔔";
               }// assemble task line
               taskList += formattedTask + '\n'; // add task line to list // add task line to list
@@ -62,7 +62,7 @@ module.exports = {
           formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
           if (activeUser.tasks[i].complete) {
             formattedTask = '~~' + formattedTask + '~~';
-          } else if (activeUser.tasks[i].rem) {
+          } else if (activeUser.tasks[i].rem === true) {
             formattedTask += " 🔔";
           } // assemble task line
           taskList += formattedTask + '\n'; // add task line to list
