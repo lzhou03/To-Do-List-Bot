@@ -37,10 +37,10 @@ module.exports = {
 
 
           if(isNaN(date)){
+            date = new Date();
 
             switch (args[argCount].toLowerCase()) {
               case "next":
-                date = new Date();
                 while (args[argCount].toLowerCase() === "next") {
                   date.setDate(date.getDate() + 7);
                   argCount++;
@@ -48,24 +48,31 @@ module.exports = {
                 date.setDate(date.getDate() + 7);
               case "monday":
                 date.setDate(date.getDate() + ((1 + 7 - date.getDay()) % 7));
+                argCount++;
                 break;
               case "tuesday":
                 date.setDate(date.getDate() + ((2 + 7 - date.getDay()) % 7));
+                argCount++;
                 break;
               case "wednesday":
                 date.setDate(date.getDate() + ((3 + 7 - date.getDay()) % 7));
+                argCount++;
                 break;
               case "thursday":
                 date.setDate(date.getDate() + ((4 + 7 - date.getDay()) % 7));
+                argCount++;
                 break;
               case "friday":
                 date.setDate(date.getDate() + ((5 + 7 - date.getDay()) % 7));
+                argCount++;
                 break;
               case "saturday":
                 date.setDate(date.getDate() + ((6 + 7 - date.getDay()) % 7));
+                argCount++;
                 break;
               case "sunday":
                 date.setDate(date.getDate() + ((7 + 7 - date.getDay()) % 7));
+                argCount++;
                 break;
 
               default:
@@ -98,6 +105,7 @@ module.exports = {
 
             message.channel.send(embed);
           }
+          console.log(date)
 
           const newTask = new task({name: taskName, date: date, complete: false, id: thisUser.tasks.length})
           thisUser.tasks.push(newTask);

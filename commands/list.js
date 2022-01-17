@@ -40,7 +40,7 @@ module.exports = {
             }
             //GENERATE STRING
             if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
-              formattedTask = i.toString() + ". "
+              formattedTask = i + ". "
               formattedTask += activeUser.tasks[i].name;
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
@@ -92,7 +92,7 @@ module.exports = {
                 i--;
               }
               else{
-                formattedTask = i.toString() + ". " //number
+                formattedTask = i + ". " //number
                 formattedTask += activeUser.tasks[i].name;
                 formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
                 taskList += formattedTask + '\n';
@@ -100,7 +100,7 @@ module.exports = {
             }
             else {
 
-              formattedTask = i.toString() + ". " //number
+              formattedTask = i + ". " //number
               formattedTask += activeUser.tasks[i].name;
               formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
               if (activeUser.tasks[i].complete) {
@@ -170,7 +170,7 @@ module.exports = {
               }
               //GENERATE STRING
               if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
-                formattedTask = i.toString() + ". "
+                formattedTask = i + ". "
                 formattedTask += activeUser.tasks[i].name;
                 if (activeUser.tasks[i].complete) {
                   formattedTask = '~~' + formattedTask + '~~';

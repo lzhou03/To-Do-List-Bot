@@ -27,11 +27,11 @@ module.exports = {
           for (var i = 0; i < activeUser.tasks.length; i++) {
             //console.log(activeUser.tasks[i].date);
             if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
-              formattedTask = i.toString() + ". "
+              formattedTask = i + ". "
               formattedTask += activeUser.tasks[i].name;
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
-              } else if (activeUser.tasks[i].rem === true) {
+              } else if (activeUser.tasks[i].rem) {
                 formattedTask += " 🔔";
               }// assemble task line
               taskList += formattedTask + '\n'; // add task line to list // add task line to list
@@ -57,12 +57,15 @@ module.exports = {
         taskList = '';
         formattedTask = ''; // set up task collectors
         for (var i = 0; i < activeUser.tasks.length; i++) {
-          formattedTask = i.toString() + ". "
+          formattedTask = i + ". "
           formattedTask += activeUser.tasks[i].name;
           formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
+
+
+
           if (activeUser.tasks[i].complete) {
             formattedTask = '~~' + formattedTask + '~~';
-          } else if (activeUser.tasks[i].rem === true) {
+          } else if (activeUser.tasks[i].rem) {
             formattedTask += " 🔔";
           } // assemble task line
           taskList += formattedTask + '\n'; // add task line to list
