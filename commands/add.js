@@ -40,12 +40,12 @@ module.exports = {
             date = new Date();
             argCount = 0;
 
+            while (args[argCount].toLowerCase() === "next") {
+              date.setDate(date.getDate() + 7);
+              argCount++;
+            }
+
             switch (args[argCount].toLowerCase()) {
-              case "next":
-                while (args[argCount].toLowerCase() === "next") {
-                  date.setDate(date.getDate() + 7);
-                  argCount++;
-                }
               case "monday":
                 date.setDate(date.getDate() + ((1 + 7 - date.getDay()) % 7));
                 argCount++;
