@@ -26,10 +26,9 @@ module.exports = {
           var thisUser = await userSchema.findOne({ uid : userid });
 
 //separate parameters
-          var index = 1;
           var date = new Date(args[0]);
           var today = new Date();
-          var nextCount = 0;
+          var argCount = 0;
 //Date
 
 
@@ -39,12 +38,12 @@ module.exports = {
 
           if(isNaN(date)){
 
-            switch (args[0].toLowerCase()) {
+            switch (args[argCount].toLowerCase()) {
               case "next":
                 date = new Date();
-                while (args[nextCount] === "next") {
+                while (args[argCount].toLowerCase() === "next") {
                   date.setDate(date.getDate() + 7);
-                  nextCount++;
+                  argCount++;
                 }
                 date.setDate(date.getDate() + 7);
               case "monday":
@@ -86,9 +85,9 @@ module.exports = {
           }
 
           var taskName = "";
-          while(args[index]){
-            taskName += " " + args[index];
-            index++;
+          while(args[argCount]){
+            taskName += " " + args[argCount];
+            argCount++;
           }
 
           //check for empty task name
