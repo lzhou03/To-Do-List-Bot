@@ -29,42 +29,57 @@ module.exports = {
           var index = 1;
           var date = new Date(args[0]);
           var today = new Date();
+          var nextCount = 0;
 //Date
-          switch (args[0]) {
-            case "monday":
-              date.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7));
-              break;
-            case "tuesday":
-              date.setDate(d.getDate() + ((2 + 7 - d.getDay()) % 7));
-              break;
-            case "wednesday":
-              date.setDate(d.getDate() + ((3 + 7 - d.getDay()) % 7));
-              break;
-            case "thursday":
-              date.setDate(d.getDate() + ((4 + 7 - d.getDay()) % 7));
-              break;
-            case "friday":
-              date.setDate(d.getDate() + ((5 + 7 - d.getDay()) % 7));
-              break;
-            case "saturday":
-              date.setDate(d.getDate() + ((6 + 7 - d.getDay()) % 7));
-              break;
-            case "sunday":
-              date.setDate(d.getDate() + ((7 + 7 - d.getDay()) % 7));
-              break;
 
-          }}
 
 
 
 
 
           if(isNaN(date)){
-            index = 0;
-            date = thisUser.lastDate;
-            if (date < today) {
-              date = today;
+
+            switch (args[0].toLowerCase()) {
+              case "next":
+                date = new Date();
+                while (args[nextCount] === "next") {
+                  date.setDate(date.getDate() + 7);
+                  nextCount++;
+                }
+                date.setDate(date.getDate() + 7);
+              case "monday":
+                date.setDate(date.getDate() + ((1 + 7 - date.getDay()) % 7));
+                break;
+              case "tuesday":
+                date.setDate(date.getDate() + ((2 + 7 - date.getDay()) % 7));
+                break;
+              case "wednesday":
+                date.setDate(date.getDate() + ((3 + 7 - date.getDay()) % 7));
+                break;
+              case "thursday":
+                date.setDate(date.getDate() + ((4 + 7 - date.getDay()) % 7));
+                break;
+              case "friday":
+                date.setDate(date.getDate() + ((5 + 7 - date.getDay()) % 7));
+                break;
+              case "saturday":
+                date.setDate(date.getDate() + ((6 + 7 - date.getDay()) % 7));
+                break;
+              case "sunday":
+                date.setDate(date.getDate() + ((7 + 7 - date.getDay()) % 7));
+                break;
+
+              default:
+                index = 0;
+                date = thisUser.lastDate;
+                if (date < today) {
+                  date = today;
+                }
+                break;
             }
+
+
+
           }
           else {
             thisUser.lastDate = date;
