@@ -124,7 +124,7 @@ module.exports = {
                     lines = formattedTask.length / 25
                     var temp = formattedTask;
                     for (var i = 0; i < lines; i++) {
-                      formattedTask=temp.slice(25*i, 25*i+25)+"\n"
+                      formattedTask+=temp.slice(25*i, 25*i+25)+"\n"
                       dateList+="\n";
                     }
                   }
