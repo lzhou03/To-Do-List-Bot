@@ -10,7 +10,7 @@ module.exports = {
     usage: `mobile`,
     async execute(message, args, command, client, Discord, db){
 
-      const activeUser = await userSchema.findOne({ uid: args[0] }); // find user
+      const activeUser = await userSchema.findOne({ uid: message.author.id }); // find user
 
       var state = "ON";
       var stateEmo = "📱";
