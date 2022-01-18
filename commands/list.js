@@ -149,7 +149,6 @@ module.exports = {
                 }
               }
 
-              taskList += formattedTask;
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
               } else if (activeUser.tasks[i].rem) {
@@ -172,7 +171,7 @@ module.exports = {
           .addFields(
           	{ name: 'Tasks:', value: taskList, inline: true },
           	{ name: 'Due:', value: dateList, inline: true },
-          )
+          );
 
           let thisMessage = await message.channel.send(embed);
           activeUser.lastListAll.set(0, thisMessage.guild.id);

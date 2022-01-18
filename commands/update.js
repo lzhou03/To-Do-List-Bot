@@ -63,7 +63,6 @@ module.exports = {
                 }
               }
 
-              taskList += formattedTask;
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
               } else if (activeUser.tasks[i].rem) {
@@ -144,7 +143,6 @@ module.exports = {
               }
             }
 
-            taskList += formattedTask;
             if (activeUser.tasks[i].complete) {
               formattedTask = '~~' + formattedTask + '~~';
             } else if (activeUser.tasks[i].rem) {
