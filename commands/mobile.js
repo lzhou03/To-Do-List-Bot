@@ -10,18 +10,22 @@ module.exports = {
     usage: `mobile`,
     async execute(message, args, command, client, Discord, db){
 
-      const activeUser = await userSchema.findOne({ uid: message.author.id }); // find user
+      const activeUser = await userSchema.findOne({uid: message.author.id}); // find user
 
       var state = "ON";
       var stateEmo = "📱";
 
       if (activeUser.mobile){
-        activeUser.mobile.set(false)
+        activeUser.mobile = false;
+        await activeUser.save()
         state="OFF"
         stateEmo="💻"
+        console("desktop")
       }
       else {
-        activeUser.mobile.set(true)
+        activeUser.mobile = true;
+        await activeUser.save()
+        console.log("mobi")
       }
 
 
