@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   uid: {type: Number, unique: true},
   tasks: [taskSchema],
   optIn: Boolean,
+  mobile: Boolean,
   lastDate: Date,
   lastList: {type: [String], default: ["", "", ""]},
   lastListDate: {type: Date, default: "09/28/2003"},

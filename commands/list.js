@@ -89,23 +89,36 @@ module.exports = {
           var date = new Date();
 
           for (var i = 0; i < activeUser.tasks.length; i++) {
+            var lines = 0; //extra lines
             if(activeUser.tasks[i].date < date) {
               if (activeUser.tasks[i].complete){
                 activeUser.tasks[i].remove();
                 i--;
               }
               else{
+                dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
                 formattedTask = i + ". " //number
-                formattedTask += activeUser.tasks[i].name;
-                dateList += activeUser.tasks[i].date.toString().slice(0,15) + "\n";
-                taskList += formattedTask + '\n';
+                formattedTask += activeUser.tasks[i].name+"\n";
+                if (activeUser.mobile) { //25 char wrap
+                  if(formattedTask.length > 25) {
+                    lines = formattedTask.length / 25
+                    var temp = formattedTask;
+                    for (var i = 0; i < lines; i++) {
+                      formattedTask=temp.slice(25*i, 25*i+25)+"\n"
+                      dateList+="\n";
+                    }
+                  }
+                }
+
+
+                taskList += formattedTask;
               }
             }
             else {
 
               formattedTask = i + ". " //number
               formattedTask += activeUser.tasks[i].name;
-              dateList += activeUser.tasks[i].date.toString().slice(0,15) + "\n";
+              dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
               } else if (activeUser.tasks[i].rem) {
@@ -116,6 +129,10 @@ module.exports = {
 
 
 
+          }
+          if(taskList.length === 0){
+            taskList = "You have no tasks!"
+            dateList = "and no dates..."
           }
 
           const embed = new MessageEmbed()
@@ -156,7 +173,7 @@ module.exports = {
             message.channel.send(embed);
           }
           else{
-          
+
             let taskList = '';
             let formattedTask = ''; // set up task collectors
             const reformattedDate = date.toString().slice(0,15);
