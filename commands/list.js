@@ -49,13 +49,13 @@ module.exports = {
               dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
               formattedTask = i + ". " //number
               formattedTask += activeUser.tasks[i].name;
-              if (activeUser.mobile) { //25 char wrap
-                if(formattedTask.length > 25) {
-                  lines = formattedTask.length / 25
+              if (activeUser.mobile) { //20 char wrap
+                if(formattedTask.length > 20) {
+                  lines = formattedTask.length / 20
                   var temp = formattedTask;
                   formattedTask=""
                   for (var j = 0; j < lines; j++) {
-                    formattedTask+=temp.slice(25*j, 25*j+25)+"\n"
+                    formattedTask+=temp.slice(20*j, 20*j+20)+"\n"
                     dateList+="\n";
                   }
                 }
@@ -119,12 +119,12 @@ module.exports = {
                 dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
                 formattedTask = i + ". " //number
                 formattedTask += activeUser.tasks[i].name+"\n";
-                if (activeUser.mobile) { //25 char wrap
-                  if(formattedTask.length > 25) {
-                    lines = formattedTask.length / 25
+                if (activeUser.mobile) { //20 char wrap
+                  if(formattedTask.length > 20) {
+                    lines = formattedTask.length / 20
                     var temp = formattedTask;
                     for (var j = 0; j < lines; j++) {
-                      formattedTask+=temp.slice(25*j, 25*j+25)+"\n"
+                      formattedTask+=temp.slice(20*j, 20*j+20)+"\n"
                       dateList+="\n";
                     }
                   }
@@ -138,13 +138,13 @@ module.exports = {
               dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
               formattedTask = i + ". " //number
               formattedTask += activeUser.tasks[i].name;
-              if (activeUser.mobile) { //25 char wrap
-                if(formattedTask.length > 25) {
-                  lines = formattedTask.length / 25
+              if (activeUser.mobile) { //20 char wrap
+                if(formattedTask.length > 20) {
+                  lines = formattedTask.length / 20
                   var temp = formattedTask;
                   formattedTask=""
                   for (var j = 0; j < lines; j++) {
-                    formattedTask+=temp.slice(25*j, 25*j+25)+"\n"
+                    formattedTask+=temp.slice(20*j, 20*j+20)+"\n"
                     dateList+="\n";
                   }
                 }
@@ -225,13 +225,13 @@ module.exports = {
                 dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
                 formattedTask = i + ". " //number
                 formattedTask += activeUser.tasks[i].name+"\n";
-                if (activeUser.mobile) { //25 char wrap
-                  if(formattedTask.length > 25) {
-                    lines = formattedTask.length / 25
+                if (activeUser.mobile) { //20 char wrap
+                  if(formattedTask.length > 20) {
+                    lines = formattedTask.length / 20
                     var temp = formattedTask;
                     formattedTask=""
                     for (var j = 0; j < lines; j++) {
-                      formattedTask+=temp.slice(25*j, 25*j+25)+"\n"
+                      formattedTask+=temp.slice(20*j, 20*j+20)+"\n"
                       dateList+="\n";
                     }
                   }
