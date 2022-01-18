@@ -52,13 +52,13 @@ module.exports = {
               dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
               formattedTask = i + ". " //number
               formattedTask += activeUser.tasks[i].name;
-              if (activeUser.mobile) { //20 char wrap
-                if(formattedTask.length > 20) {
-                  lines = formattedTask.length / 20
+              if (activeUser.mobile) { //15 char wrap
+                if(formattedTask.length > 15) {
+                  lines = formattedTask.length / 15
                   var temp = formattedTask;
                   formattedTask=""
                   for (var j = 0; j < lines; j++) {
-                    formattedTask+=temp.slice(20*j, 20*j+20)+"\n"
+                    formattedTask+=temp.slice(15*j, 15*j+15)+"\n"
                     dateList+="\n";
                   }
                 }
@@ -114,13 +114,13 @@ module.exports = {
               dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
               formattedTask = i + ". " //number
               formattedTask += activeUser.tasks[i].name+"\n";
-              if (activeUser.mobile) { //20 char wrap
-                if(formattedTask.length > 20) {
-                  lines = formattedTask.length / 20
+              if (activeUser.mobile) { //15 char wrap
+                if(formattedTask.length > 15) {
+                  lines = formattedTask.length / 15
                   var temp = formattedTask;
                   formattedTask=""
                   for (var j = 0; j < lines; j++) {
-                    formattedTask+=temp.slice(20*j, 20*j+20)+"\n"
+                    formattedTask+=temp.slice(15*j, 15*j+15)+"\n"
                     dateList+="\n";
                   }
                 }
@@ -134,13 +134,13 @@ module.exports = {
             dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
             formattedTask = i + ". " //number
             formattedTask += activeUser.tasks[i].name;
-            if (activeUser.mobile) { //20 char wrap
-              if(formattedTask.length > 20) {
-                lines = formattedTask.length / 20
+            if (activeUser.mobile) { //15 char wrap
+              if(formattedTask.length > 15) {
+                lines = formattedTask.length / 15
                 var temp = formattedTask;
                 formattedTask=""
                 for (var j = 0; j < lines; j++) {
-                  formattedTask+=temp.slice(20*j, 20*j+20)+"\n"
+                  formattedTask+=temp.slice(15*j, 15*j+15)+"\n"
                   dateList+="\n";
                 }
               }
