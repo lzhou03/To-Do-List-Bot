@@ -73,6 +73,11 @@ client.on('message', message => {
     client.commands.get("date").execute(message, args, command, client, Discord, db);
 
   }
+  else if (command === 'mobile') {
+    //message.channel.send("abcd");
+    client.commands.get("mobile").execute(message, args, command, client, Discord, db);
+
+  }
   else {
     const embed = new MessageEmbed()
       .setColor("RED")
