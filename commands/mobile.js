@@ -16,12 +16,12 @@ module.exports = {
       var stateEmo = "📱";
 
       if (activeUser.mobile){
-        activeUser.mobile = false
+        activeUser.mobile.set(false)
         state="OFF"
         stateEmo="💻"
       }
       else {
-        activeUser.mobile = true
+        activeUser.mobile.set(true)
       }
 
 
