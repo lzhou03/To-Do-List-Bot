@@ -100,7 +100,7 @@ module.exports = {
         console.log("new date: "+date)
 
         activeUser.tasks[taskNum].date = date;
-        activeUser.tasks[taskNum].name = taskName;
+        var taskName = activeUser.tasks[taskNum].name;
         await activeUser.save();
 
         const embed = new MessageEmbed()
