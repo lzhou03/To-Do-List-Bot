@@ -60,7 +60,7 @@ module.exports = {
         const embed = new MessageEmbed()
         .setColor("#FFFF00")
         .setTitle( toggleText+" for Task: "+args[0] + " 🔔") //add task name
-        .setDescription(doneMessage);
+        .setDescription("REEEE");
 
         message.channel.send(embed);
         client.commands.get("update").execute(message, args, command, client, Discord, db);
