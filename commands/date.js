@@ -47,7 +47,7 @@ module.exports = {
 
         if(isNaN(date)){
           date = new Date();
-          argCount = 0;
+          argCount = 1;
 
           while (args[argCount].toLowerCase() === "next") {
             date.setDate(date.getDate() + 7);
@@ -100,6 +100,7 @@ module.exports = {
         console.log("new date: "+date)
 
         activeUser.tasks[taskNum].date = date;
+        activeUser.tasks[taskNum].name = taskName;
         await activeUser.save();
 
         const embed = new MessageEmbed()
