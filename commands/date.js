@@ -99,8 +99,8 @@ module.exports = {
 
         console.log("new date: "+date)
 
-        thisUser.tasks[taskNum].date = date;
-        await thisUser.save();
+        activeUser.tasks[taskNum].date = date;
+        await activeUser.save();
 
         const embed = new MessageEmbed()
         .setColor("GREEN")
