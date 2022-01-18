@@ -9,6 +9,12 @@ module.exports = {
     usage: `ree`,
     async execute(message, args, command, client, Discord, db){
       var uid = message.author.id;
+      const activeUser = await userSchema.findOne({ uid: uid }); // find user
+      if (activeUser) {
+        const selectedTask = await activeUser.tasks[taskNum]; // find task
+        if (!selectedTask) {
+          return;
+        }
       var taskNum = args[0];
 
       if (args[0]%1 !== 0){
@@ -39,12 +45,7 @@ module.exports = {
 
         var reeMessage = "";
         //update completion status in db
-        const activeUser = await userSchema.findOne({ uid: uid }); // find user
-        if (activeUser) {
-          const selectedTask = await activeUser.tasks[taskNum]; // find task
-          if (!selectedTask) {
-            return;
-          }
+
           const date = new Date(selectedTask.date);//get date
           const name = selectedTask.name; // get name
           if (selectedTask) {
