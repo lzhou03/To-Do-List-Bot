@@ -50,9 +50,10 @@ module.exports = {
 
         var toggleText = "Reminders ";
         var toggleEmo = " 🔕"
-        if(selectedTask.rem)
+        if(selectedTask.rem) {
           toggleText+="ON";
           toggleEmo = " 🔔"
+        }
         else {
           toggleText+="OFF";
         }

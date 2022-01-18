@@ -82,6 +82,7 @@ module.exports = {
             return;
           }
           let taskList = '';
+          let dateList = '';
           let formattedTask = ''; // set up task collectors
           var date = new Date();
 
@@ -94,7 +95,7 @@ module.exports = {
               else{
                 formattedTask = i + ". " //number
                 formattedTask += activeUser.tasks[i].name;
-                formattedTask += ' - ' + activeUser.tasks[i].date.toString().slice(0,15);
+                dateList += activeUser.tasks[i].date.toString().slice(0,15) + "\n";
                 taskList += formattedTask + '\n';
               }
             }
@@ -102,7 +103,7 @@ module.exports = {
 
               formattedTask = i + ". " //number
               formattedTask += activeUser.tasks[i].name;
-              formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
+              dateList += activeUser.tasks[i].date.toString().slice(0,15) + "\n";
               if (activeUser.tasks[i].complete) {
                 formattedTask = '~~' + formattedTask + '~~';
               } else if (activeUser.tasks[i].rem) {
@@ -118,7 +119,11 @@ module.exports = {
           const embed = new MessageEmbed()
           .setColor("#9B59B6")
           .setTitle("__"+message.author.username+'\'s List of All Tasks__') // add date
-          .setDescription(taskList);
+          .addFields(
+          	{ name: '\u200B', value: '\u200B' },
+          	{ name: 'Tasks:', value: taskList, inline: true },
+          	{ name: 'Due:', value: dateList, inline: true },
+          )
 
           let thisMessage = await message.channel.send(embed);
           activeUser.lastListAll.set(0, thisMessage.guild.id);
