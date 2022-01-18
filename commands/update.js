@@ -56,8 +56,9 @@ module.exports = {
                 if(formattedTask.length > 25) {
                   lines = formattedTask.length / 25
                   var temp = formattedTask;
+                  formattedTask=""
                   for (var i = 0; i < lines; i++) {
-                    formattedTask=temp.slice(25*i, 25*i+25)+"\n"
+                    formattedTask+=temp.slice(25*i, 25*i+25)+"\n"
                     dateList+="\n";
                   }
                 }
@@ -136,8 +137,9 @@ module.exports = {
               if(formattedTask.length > 25) {
                 lines = formattedTask.length / 25
                 var temp = formattedTask;
+                formattedTask=""
                 for (var i = 0; i < lines; i++) {
-                  formattedTask=temp.slice(25*i, 25*i+25)+"\n"
+                  formattedTask+=temp.slice(25*i, 25*i+25)+"\n"
                   dateList+="\n";
                 }
               }
