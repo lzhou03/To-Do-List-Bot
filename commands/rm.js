@@ -10,6 +10,7 @@ module.exports = {
     async execute(message, args, command, client, Discord, db){
         //check arguments
         var uid = message.author.id;
+        var taskNum = args[0];
         const activeUser = await userSchema.findOne({ uid: uid });
         if (args[0]%1!== 0){
           const embed = new MessageEmbed()
@@ -28,7 +29,7 @@ module.exports = {
           return;
         }
         else{
-          var taskNum = args[0];
+
 
            // find user
           // find task to remove

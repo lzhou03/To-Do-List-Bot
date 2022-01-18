@@ -27,8 +27,7 @@ module.exports = {
           }
 
           const activeUser = await userSchema.findOne({ uid: uid }); // find user
-          const selectedTaskID = activeUser.tasks[taskNum]._id; // find task to remove
-          const selectedTask = activeUser.tasks.id(selectedTaskID);
+          const selectedTask = activeUser.tasks[taskNum];
           const date = new Date(selectedTask.date);//get date
           const name1 = selectedTask.name; // get original name
           //const name2 = taskName; // new name

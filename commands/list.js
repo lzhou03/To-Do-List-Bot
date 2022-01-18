@@ -94,7 +94,7 @@ module.exports = {
               else{
                 formattedTask = i + ". " //number
                 formattedTask += activeUser.tasks[i].name;
-                formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
+                formattedTask += ' - ' + activeUser.tasks[i].date.toString().slice(0,15);
                 taskList += formattedTask + '\n';
               }
             }

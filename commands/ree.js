@@ -40,10 +40,25 @@ module.exports = {
           }
           var username = await client.users.cache.get(uid.toString()).username;
 
+        if (activeUser.rem) {
+          var time = args[1]*60*1000
+          const remArgs = [uid, selectedTask._id, time];
+          client.commands.get("remind").execute(message, remArgs, command, client, Discord)
+        }
 
+
+
+        var toggleText = "Reminders ";
+        var toggleEmo = " 🔕"
+        if(selectedTask.rem)
+          toggleText+="ON";
+          toggleEmo = " 🔔"
+        else {
+          toggleText+="OFF";
+        }
         const embed = new MessageEmbed()
         .setColor("#FFFF00")
-        .setTitle("You've completed Task: "+args[0] + "!") //add task name
+        .setTitle( toggleText+" for Task: "+args[0] + " 🔔") //add task name
         .setDescription(doneMessage);
 
         message.channel.send(embed);

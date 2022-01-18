@@ -62,7 +62,7 @@ module.exports = {
         for (var i = 0; i < activeUser.tasks.length; i++) {
           formattedTask = i + ". "
           formattedTask += activeUser.tasks[i].name;
-          formattedTask += '- ' + activeUser.tasks[i].date.toString().slice(0,15);
+          formattedTask += ' - ' + activeUser.tasks[i].date.toString().slice(0,15);
 
 
 
