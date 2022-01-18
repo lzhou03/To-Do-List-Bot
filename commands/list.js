@@ -11,13 +11,18 @@ module.exports = {
     async execute(message, args, command, client, Discord, db){
         //check args
         var userid = message.author.id;
+        const activeUser = await userSchema.findOne({ uid: userid }); // find user
+        if (!activeUser) {
+          return;
+        }
+        activeUser.tasks = activeUser.tasks.sort((a, b) => a.date - b.date);
+        for (var i; i< activeUser.tasks.length;i++) {
+          activeUser.tasks[i].id = i;
+        }
 
         if(!args[0]){ //DEFAULT LIST
           //list lastDate list
-          const activeUser = await userSchema.findOne({ uid: userid }); // find user
-          if (!activeUser) {
-            return;
-          }
+
           let taskList = '';
           let formattedTask = ''; // set up task collectors
 
@@ -77,10 +82,7 @@ module.exports = {
 
 
         else if(args[0]==='all'){ // LIST ALL
-          const activeUser = await userSchema.findOne({ uid: userid }); // find user
-          if (!activeUser) {
-            return;
-          }
+
           let taskList = '';
           let dateList = '';
           let formattedTask = ''; // set up task collectors
@@ -154,10 +156,7 @@ module.exports = {
             message.channel.send(embed);
           }
           else{
-            const activeUser = await userSchema.findOne({ uid: userid }); // find user
-            if (!activeUser) {
-              return;
-            }
+          
             let taskList = '';
             let formattedTask = ''; // set up task collectors
             const reformattedDate = date.toString().slice(0,15);
