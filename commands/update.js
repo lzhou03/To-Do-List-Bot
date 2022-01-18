@@ -159,7 +159,7 @@ module.exports = {
           dateList = "and no dates..."
         }
 
-        const embed = new MessageEmbed()
+        const embed2 = new MessageEmbed()
         .setColor("#9B59B6")
         .setTitle("__"+message.author.username+'\'s List of All Tasks__') // add date
         .addFields(
