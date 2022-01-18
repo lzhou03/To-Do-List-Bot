@@ -120,7 +120,6 @@ module.exports = {
           .setColor("#9B59B6")
           .setTitle("__"+message.author.username+'\'s List of All Tasks__') // add date
           .addFields(
-          	{ name: '\u200B', value: '\u200B' },
           	{ name: 'Tasks:', value: taskList, inline: true },
           	{ name: 'Due:', value: dateList, inline: true },
           )
