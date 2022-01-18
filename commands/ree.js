@@ -9,6 +9,7 @@ module.exports = {
     usage: `ree`,
     async execute(message, args, command, client, Discord, db){
       var uid = message.author.id;
+      var taskNum = args[0];
 
       if (args[0]%1 !== 0){
         const embed = new MessageEmbed()
@@ -16,9 +17,26 @@ module.exports = {
         .setTitle("Please specify the task ID number.");
 
         message.channel.send(embed);
+        return;
+      }
+      else if (taskNum < 0 || taskNum > activeUser.tasks.length - 1) {
+        const embed = new MessageEmbed()
+        .setColor("RED")
+        .setTitle("Task ID number out of range.");
+
+        message.channel.send(embed);
+        return;
+      }
+      else if (args[1]%1 !== 0){
+        const embed = new MessageEmbed()
+        .setColor("RED")
+        .setTitle("Please specify the interval in minutes.");
+
+        message.channel.send(embed);
+        return;
       }
       else{
-        var taskNum = args[0];
+
         var reeMessage = "";
         //update completion status in db
         const activeUser = await userSchema.findOne({ uid: uid }); // find user
