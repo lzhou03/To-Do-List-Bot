@@ -48,7 +48,7 @@ module.exports = {
             if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
               dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
               formattedTask = i + ". " //number
-              formattedTask += activeUser.tasks[i].name+"\n";
+              formattedTask += activeUser.tasks[i].name;
               if (activeUser.mobile) { //25 char wrap
                 if(formattedTask.length > 25) {
                   lines = formattedTask.length / 25
@@ -136,7 +136,7 @@ module.exports = {
 
               dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
               formattedTask = i + ". " //number
-              formattedTask += activeUser.tasks[i].name+"\n";
+              formattedTask += activeUser.tasks[i].name;
               if (activeUser.mobile) { //25 char wrap
                 if(formattedTask.length > 25) {
                   lines = formattedTask.length / 25
