@@ -20,7 +20,7 @@ module.exports = {
         await activeUser.save()
         state="OFF"
         stateEmo="💻"
-        console("desktop")
+        console.log("desktop")
       }
       else {
         activeUser.mobile = true;
