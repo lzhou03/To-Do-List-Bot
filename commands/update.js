@@ -110,8 +110,9 @@ module.exports = {
           var lines = 0; //extra lines
           if(activeUser.tasks[i].date < date) {
             if (activeUser.tasks[i].complete){
-              activeUser.tasks[i].remove();
+              activeUser.tasks=activeUser.tasks.splice(task, 1);
               await activeUser.save();
+              console.log("auto rm: " + activeUser.tasks[i].name)
               i--;
             }
             else{
