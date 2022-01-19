@@ -19,7 +19,7 @@ module.exports = {
         for (var i; i< activeUser.tasks.length;i++) {
           activeUser.tasks[i].id = i;
         }
-        activeUser.save();
+        await activeUser.save();
 
         if(!args[0]){ //DEFAULT LIST
           //list lastDate list
