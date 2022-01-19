@@ -111,7 +111,7 @@ module.exports = {
           if(activeUser.tasks[i].date < date) {
             if (activeUser.tasks[i].complete){
               console.log("auto rm: " + activeUser.tasks[i].name)
-              activeUser.tasks.splice(task, 1);
+              activeUser.tasks.splice(i, 1);
               await activeUser.save();
 
               i--;
