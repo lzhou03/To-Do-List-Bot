@@ -49,6 +49,7 @@ module.exports = {
                 activeUser.tasks[i].date = date;
               }
             }
+            await activeUser.save();
             //GENERATE STRING
             if (activeUser.tasks[i].date.toString().slice(0,15) == reformattedDate) {
               dateList += activeUser.tasks[i].date.toString().slice(0,10) + "\n";
