@@ -108,7 +108,7 @@ module.exports = {
 
         for (var i = 0; i < activeUser.tasks.length; i++) {
           var lines = 0; //extra lines
-          if(activeUser.tasks[i].date < date) {
+          if(activeUser.tasks[i].date < date || activeUser.tasks.length < 15) {
             if (activeUser.tasks[i].complete){
               console.log("auto rm: " + activeUser.tasks[i].name)
               activeUser.tasks.splice(i, 1);

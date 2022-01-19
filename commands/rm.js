@@ -34,10 +34,10 @@ module.exports = {
            // find user
           // find task to remove
           const selectedTask = activeUser.tasks[taskNum]
-          console.log(selectedTask.name + " " + selectedTask.date)
+          console.log("rm: "+selectedTask.name + " " + selectedTask.date)
           const date = new Date(selectedTask.date);//get date
           const name = selectedTask.name; // get name
-          activeUser.tasks = activeUser.tasks.splice(taskNum, 1); // remove item at taskNum
+          activeUser.tasks.splice(taskNum, 1); // remove item at taskNum
           await activeUser.save(); // saves change to database
 
           const embed = new MessageEmbed()
