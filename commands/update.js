@@ -16,6 +16,7 @@ module.exports = {
           return;
         }
         activeUser.tasks = activeUser.tasks.sort((a, b) => a.date - b.date);
+        await activeUser.save();
         for (var i; i< activeUser.tasks.length;i++) {
           activeUser.tasks[i].id = i;
         }
