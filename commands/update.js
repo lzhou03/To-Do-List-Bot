@@ -108,6 +108,7 @@ module.exports = {
           if(activeUser.tasks[i].date < date) {
             if (activeUser.tasks[i].complete){
               activeUser.tasks[i].remove();
+              await activeUser.save();
               i--;
             }
             else{
