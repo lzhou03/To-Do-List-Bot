@@ -77,7 +77,7 @@ module.exports = {
 
               default:
                 index = 0;
-                date = thisUser.lastDate;
+                date = today;
                 if (date < today) {
                   date = today;
                 }
