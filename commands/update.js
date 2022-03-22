@@ -90,6 +90,10 @@ module.exports = {
 
 
           if (activeUser.lastList[1] != ""){
+            let thisChannel = await client.channels.cache.get(activeUser.lastList[1]);
+            if (thisChannel == null) {
+              return message.channels.send("Error updating last list.");
+            }
             let thisMessage = await client.channels.cache.get(activeUser.lastList[1]).messages.fetch(activeUser.lastList[2]);
             //console.log(thisMessage);activeUser.lastList[1] != ""
             thisMessage.edit(embed);
