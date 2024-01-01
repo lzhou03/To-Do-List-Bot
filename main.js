@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const { prefix } = require('./config.json');
 const userSchema = require('./models/userSchema.js');
 const { MessageEmbed } = require('discord.js');
+const keep_alive = require('./keep_alive.js');
+
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -87,9 +89,6 @@ client.on('message', message => {
     message.channel.send(embed);
   }
 }
-	else if (message.content.startsWith("tittie!")) {
-  message.reply("Disgusting.");
-  message.react('🤮');
 
 }
 })
